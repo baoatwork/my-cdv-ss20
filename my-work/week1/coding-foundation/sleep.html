@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+     <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <title>Baobao tries to sleep</title>
+  </head>
+  <body>
+      <input id="in" type="text" name="times">
+      <button id="Bt" onclick="tryto()">Try to count</button>
+
+
+      <div id="draw"></div>
+
+
+    <script>
+      function tryto(){
+        var sl="";
+        var dr=document.getElementById("draw");
+        var time=document.getElementById("in").value;
+        for(var t=0;t<time;t++){
+          sl=sl+"Z"+"<br>";
+        }
+        document.getElementById("draw").innerHTML=sl;
+      }
+
+    </script>
+
+  </body>
+</html>
