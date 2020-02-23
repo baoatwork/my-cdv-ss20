@@ -1,11 +1,15 @@
 ###Reflection 1:
+
    To me, data is always manipulated by the people who collected and processed it. It is like writing a book -- even the history documents, which everyone knows, do not contain 100% facts, let alone so-called "truth". So I think that is why Bowker thinks the term "raw data" is paradoxical inherently.Bowker also regards raw data as a bad idea with the belief that data needs to be carefully used and interpreted. Additional to that, I think there is another worse influence the term "raw data" can have on people potentially. The more we believe in the truthfulness of data, the less opporntunities there we would rethink about it. We would easily trust any conclusion that is draw from data, which is kind of horrible.
 
 ###Reflection 2:
+
    I think it is somehow similar to how media develops and works in society. We evolve from books to newspapers, radios, TVS and now online streaming. This whole process is not just about getting more diverse and quick message, at the same time, it changes the way we see the world. TV not only offer us more information than books, but it also create a different information system that draws our attention. We began to talk about TV shows, commercials and other stuff which had not been quite popular or even appeared before. Similarly, big data doesn't just mean a larger number of strings, but a brand new system that would change the way people think.
 
 ###Reflection 3:
+
    One main limitation I get from the article is that the samples from Twitter could not represent all people, while they are often used to study the thoughts of the mass. People do not use Twitter (like the old and we Chinese people) and people who overreach in Twitter using can make the data awry. However, I would not consider this as a limitation, on the contrary, I think this is an unique feature of social meadia platform which we should embrace. Since I'm not a Twitter user, my claim comes from my experience with Weibo. I think social media platforms like these are formed by many small groups in which people share the same topic and talk about it. That means it is very possible a questionaire would be spread around certain groups within people sharing some common characteristic. If we can use this feature of the platform well, we can spread our questions more wisely and get more accurate and useful replies.
 
 ###Reflection 4:
+
    I think in most cases it is not illegal to use "public" data as it is hard to draw a line between sharing your life and personal privacy. I would say using data screctly like this is the stalking in big data era. In present time, the conscience of the people using and analysing data seem to be rather important. But a good phenomenon about this is that people tend to protect a person's privacy if it is found that this person's infomation is used without permission. We tend to criticize the guy who is stalking other people's life through screen, and this mood of the mass somehow can awe the people study data. Although in some cases, the mood of the mass can also hurt someone's privacy under the name of justice if this guy turns out to be bad or hateful.
