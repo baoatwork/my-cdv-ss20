@@ -1,0 +1,163 @@
+body{
+  background:#854836;
+}
+
+h1{
+  font-family:"Special Elite";
+  font-size:50px;
+}
+
+p{
+  font-family:"Special Elite";
+  font-size:35px;
+
+  position:relative;
+  left:1000px;
+}
+
+h2{
+  position:absolute;
+  font-family:"Special Elite";
+  font-size:30px;
+
+  left:120px;
+  top:120px;
+}
+
+h3{
+  font-family:"Pangolin";
+  font-size:25px;
+}
+
+#w1{
+  position:absolute;
+  left:340px;
+  top:180px;
+}
+
+#w2{
+  position:absolute;
+  left:340px;
+  top:340px;
+}
+
+#w3{
+  position:absolute;
+  left:340px;
+  top:500px;
+}
+
+#w4{
+  position:absolute;
+  left:340px;
+  top:660px;
+}
+
+
+
+.icon{
+
+  width:180px;
+  height:120px;
+
+  border: 5px double #554236;
+  border-radius:20%;
+
+}
+
+#diao{
+  position:absolute;
+  left:120px;
+  top:200px;
+}
+
+#zhao{
+  position:absolute;
+  left:120px;
+  top:360px;
+}
+
+#yu{
+  position:absolute;
+  left:120px;
+  top:520px;
+}
+
+#xi{
+  position:absolute;
+  left:120px;
+  top:680px;
+}
+
+.blank{
+  height:10px;
+
+}
+
+
+.portrait{
+
+
+  border: 5px double #554236;
+  border-radius:0%;
+  margin-bottom: 200px;
+}
+
+#a1:hover{
+  content:url(pic/a.png);
+}
+
+#c1{
+  position:absolute;
+  left:20%;
+  top:900px;
+  width:180px;
+  height:320px;
+}
+
+#b1:hover{
+  content:url(pic/b.png);
+}
+
+#a1{
+  position:absolute;
+  left:35%;
+  top:900px;
+  width:180px;
+  height:320px;
+}
+
+#c1:hover{
+  content:url(pic/c.png);
+}
+
+#b1{
+  position:absolute;
+  left:50%;
+  top:900px;
+  width:180px;
+  height:320px;
+}
+
+#d1:hover{
+  content:url(pic/d.png);
+}
+
+#d1{
+  position:absolute;
+  left:65%;
+  top:900px;
+  width:180px;
+  height:320px;
+}
+
+.bar{
+  height: 40px;
+  background-color: #1C1C1C;
+
+  position:relative;
+  left:340px;
+  top:120px;
+  margin-bottom: 120px;
+
+}
