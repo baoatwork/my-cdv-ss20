@@ -304,3 +304,32 @@ for(let i =1; i+5<=transformedData.length; i = i +5){
   bar.appendChild(barname);
   document.body.appendChild(bar);
 }
+
+
+
+
+
+function over2(){
+  document.getElementById("intro2").style.display = "block";
+}
+
+function out2(){
+  document.getElementById("intro2").style.display = "none";
+}
+
+function over3(){
+  document.getElementById("intro3").style.display = "block";
+}
+
+function out3(){
+  document.getElementById("intro3").style.display = "none";
+}
+
+
+function over4(){
+  document.getElementById("intro4").style.display = "block";
+}
+
+function out4(){
+  document.getElementById("intro4").style.display = "none";
+}
