@@ -107,12 +107,25 @@ h3{
   content:url(pic/a.png);
 }
 
+#a1:hover + #intro2{
+  display:block;
+}
+
 #c1{
   position:absolute;
   left:20%;
   top:900px;
   width:180px;
   height:320px;
+}
+
+#c1:hover{
+  content:url(pic/c.png);
+
+}
+
+#c1:hover + #intro1{
+  display:block;
 }
 
 #b1:hover{
@@ -127,9 +140,7 @@ h3{
   height:320px;
 }
 
-#c1:hover{
-  content:url(pic/c.png);
-}
+
 
 #b1{
   position:absolute;
@@ -143,6 +154,10 @@ h3{
   content:url(pic/d.png);
 }
 
+#di:hover + #intro4{
+  display:block;
+}
+
 #d1{
   position:absolute;
   left:65%;
@@ -150,6 +165,8 @@ h3{
   width:180px;
   height:320px;
 }
+
+
 
 .bar{
   height: 40px;
@@ -160,4 +177,56 @@ h3{
   top:120px;
   margin-bottom: 120px;
 
+}
+
+
+
+
+
+h4{
+  font-family:"Special Elite";
+  font-size:35px;
+}
+
+#intro1{
+  position:absolute;
+  top:1250px;
+  left:38%;
+
+  display:none;
+}
+
+#intro2{
+  position:absolute;
+  top:1250px;
+  left:34%;
+
+  display:none;
+}
+
+
+#intro3{
+  position:absolute;
+  top:1250px;
+  left:38%;
+
+  display:none;
+}
+
+
+#intro4{
+  position:absolute;
+  top:1250px;
+  left:38%;
+
+  display:none;
+}
+
+h5{
+  font-family:"Special Elite";
+  font-size:15px;
+
+  position:absolute;
+  top:1450px;
+  left:43%;
 }
