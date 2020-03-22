@@ -45,10 +45,11 @@ body{
   background-color: white;
 }
 .cover-container, .back-container{
+  
   width: 1200px;
 }
 .middle-spread-container{
-  background-color: #FCFAF2;
+
   width: 2400px;
 }
 .middle-spread-container:before {

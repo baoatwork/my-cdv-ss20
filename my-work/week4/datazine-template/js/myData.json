@@ -1,407 +1,461 @@
 [
     {
-        "seq": 1,
-        "date": "2020-02-26T08:00:00.000Z",
-        "time": "1899-12-30T17:14:00.000Z",
+        "date": "2020-02-25T16:00:00.000Z",
+        "time": "1899-12-30T01:08:17.000Z",
         "type": "Milk",
         "container": "Plastic bottle",
         "heat": "Cold",
-        "location": "Canteen"
+        "location": "Canteen",
+        "day": 1
     },
     {
-        "seq": 2,
-        "date": "2020-02-26T08:00:00.000Z",
-        "time": "1899-12-30T17:46:00.000Z",
+        "date": "2020-02-25T16:00:00.000Z",
+        "time": "1899-12-30T01:40:17.000Z",
+        "type": "Water",
+        "container": "Glass",
+        "heat": "Icy",
+        "location": "Outside",
+        "day": 1
+    },
+    {
+        "date": "2020-02-25T16:00:00.000Z",
+        "time": "1899-12-30T05:02:17.000Z",
+        "type": "Water",
+        "container": "Glass",
+        "heat": "Icy",
+        "location": "Office Building",
+        "day": 1
+    },
+    {
+        "date": "2020-02-25T16:00:00.000Z",
+        "time": "1899-12-30T07:00:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 1
     },
     {
-        "seq": 3,
-        "date": "2020-02-26T08:00:00.000Z",
-        "time": "1899-12-30T21:08:00.000Z",
+        "date": "2020-02-25T16:00:00.000Z",
+        "time": "1899-12-30T09:04:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 1
     },
     {
-        "seq": 4,
-        "date": "2020-02-26T08:00:00.000Z",
-        "time": "1899-12-30T23:06:00.000Z",
+        "date": "2020-02-25T16:00:00.000Z",
+        "time": "1899-12-30T12:36:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 1
     },
     {
-        "seq": 5,
-        "date": "2020-02-26T08:00:00.000Z",
-        "time": "1899-12-31T01:10:00.000Z",
+        "date": "2020-02-25T16:00:00.000Z",
+        "time": "1899-12-30T15:14:17.000Z",
         "type": "Water",
-        "container": "Cup",
-        "heat": "Warm",
-        "location": "Office Building"
+        "container": "Glass",
+        "heat": "Icy",
+        "location": "Home",
+        "day": 1
     },
     {
-        "seq": 6,
-        "date": "2020-02-26T08:00:00.000Z",
-        "time": "1899-12-31T04:42:00.000Z",
-        "type": "Water",
-        "container": "Cup",
-        "heat": "Warm",
-        "location": "Office Building"
-    },
-    {
-        "seq": 7,
-        "date": "2020-02-26T08:00:00.000Z",
-        "time": "1899-12-31T07:20:00.000Z",
-        "type": "Water",
-        "container": "Cup",
-        "heat": "Cold",
-        "location": "Home"
-    },
-    {
-        "seq": 8,
-        "date": "2020-02-27T08:00:00.000Z",
-        "time": "1899-12-30T16:48:00.000Z",
+        "date": "2020-02-26T16:00:00.000Z",
+        "time": "1899-12-30T00:42:17.000Z",
         "type": "Milk",
         "container": "Plastic bottle",
         "heat": "Cold",
-        "location": "Canteen"
+        "location": "Canteen",
+        "day": 2
     },
     {
-        "seq": 9,
-        "date": "2020-02-27T08:00:00.000Z",
-        "time": "1899-12-30T17:15:00.000Z",
+        "date": "2020-02-26T16:00:00.000Z",
+        "time": "1899-12-30T01:09:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 2
     },
     {
-        "seq": 10,
-        "date": "2020-02-27T08:00:00.000Z",
-        "time": "1899-12-30T20:41:00.000Z",
+        "date": "2020-02-26T16:00:00.000Z",
+        "time": "1899-12-30T04:35:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 2
     },
     {
-        "seq": 11,
-        "date": "2020-02-27T08:00:00.000Z",
-        "time": "1899-12-30T23:44:00.000Z",
+        "date": "2020-02-26T16:00:00.000Z",
+        "time": "1899-12-30T07:38:17.000Z",
         "type": "Water",
-        "container": "Cup",
-        "heat": "Warm",
-        "location": "Office Building"
+        "container": "Glass",
+        "heat": "Icy",
+        "location": "Outside",
+        "day": 2
     },
     {
-        "seq": 12,
-        "date": "2020-02-27T08:00:00.000Z",
-        "time": "1899-12-31T01:25:00.000Z",
+        "date": "2020-02-26T16:00:00.000Z",
+        "time": "1899-12-30T09:19:17.000Z",
         "type": "Water",
-        "container": "Cup",
-        "heat": "Warm",
-        "location": "Office Building"
+        "container": "Glass",
+        "heat": "Icy",
+        "location": "Outside",
+        "day": 2
     },
     {
-        "seq": 13,
-        "date": "2020-02-27T08:00:00.000Z",
-        "time": "1899-12-31T02:01:00.000Z",
+        "date": "2020-02-26T16:00:00.000Z",
+        "time": "1899-12-30T09:55:17.000Z",
         "type": "Water",
-        "container": "Cup",
-        "heat": "Warm",
-        "location": "Office Building"
-    },
-    {
-        "seq": 14,
-        "date": "2020-02-27T08:00:00.000Z",
-        "time": "1899-12-31T04:42:00.000Z",
-        "type": "Water",
-        "container": "Cup",
-        "heat": "Warm",
-        "location": "Office Building"
-    },
-    {
-        "seq": 15,
-        "date": "2020-02-27T08:00:00.000Z",
-        "time": "1899-12-31T05:25:00.000Z",
-        "type": "Water",
-        "container": "Cup",
-        "heat": "Warm",
-        "location": "Office Building"
-    },
-    {
-        "seq": 16,
-        "date": "2020-02-27T08:00:00.000Z",
-        "time": "1899-12-31T07:43:00.000Z",
-        "type": "Water",
-        "container": "Cup",
+        "container": "Plastic bottle",
         "heat": "Cold",
-        "location": "Home"
+        "location": "Office Building",
+        "day": 2
     },
     {
-        "seq": 17,
-        "date": "2020-02-28T08:00:00.000Z",
-        "time": "1899-12-30T17:40:00.000Z",
+        "date": "2020-02-26T16:00:00.000Z",
+        "time": "1899-12-30T12:36:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 2
     },
     {
-        "seq": 18,
-        "date": "2020-02-28T08:00:00.000Z",
-        "time": "1899-12-30T20:41:00.000Z",
+        "date": "2020-02-26T16:00:00.000Z",
+        "time": "1899-12-30T13:19:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 2
     },
     {
-        "seq": 19,
-        "date": "2020-02-28T08:00:00.000Z",
-        "time": "1899-12-30T21:14:00.000Z",
+        "date": "2020-02-26T16:00:00.000Z",
+        "time": "1899-12-30T15:37:17.000Z",
+        "type": "Water",
+        "container": "Glass",
+        "heat": "Icy",
+        "location": "Home",
+        "day": 2
+    },
+    {
+        "date": "2020-02-27T16:00:00.000Z",
+        "time": "1899-12-30T01:34:17.000Z",
+        "type": "Water",
+        "container": "Cup",
+        "heat": "Warm",
+        "location": "Office Building",
+        "day": 3
+    },
+    {
+        "date": "2020-02-27T16:00:00.000Z",
+        "time": "1899-12-30T04:35:17.000Z",
         "type": "Soup",
         "container": "Bowl",
         "heat": "Hot",
-        "location": "Home"
+        "location": "Home",
+        "day": 3
     },
     {
-        "seq": 20,
-        "date": "2020-02-28T08:00:00.000Z",
-        "time": "1899-12-30T23:00:00.000Z",
+        "date": "2020-02-27T16:00:00.000Z",
+        "time": "1899-12-30T09:17:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 3
     },
     {
-        "seq": 21,
-        "date": "2020-02-28T08:00:00.000Z",
-        "time": "1899-12-31T01:23:00.000Z",
+        "date": "2020-02-27T16:00:00.000Z",
+        "time": "1899-12-30T10:54:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 3
     },
     {
-        "seq": 22,
-        "date": "2020-02-28T08:00:00.000Z",
-        "time": "1899-12-31T03:00:00.000Z",
+        "date": "2020-02-27T16:00:00.000Z",
+        "time": "1899-12-30T13:11:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 3
     },
     {
-        "seq": 23,
-        "date": "2020-02-28T08:00:00.000Z",
-        "time": "1899-12-31T05:17:00.000Z",
+        "date": "2020-02-27T16:00:00.000Z",
+        "time": "1899-12-30T15:04:17.000Z",
         "type": "Water",
-        "container": "Cup",
-        "heat": "Warm",
-        "location": "Office Building"
+        "container": "Glass",
+        "heat": "Icy",
+        "location": "Home",
+        "day": 3
     },
     {
-        "seq": 24,
-        "date": "2020-02-28T08:00:00.000Z",
-        "time": "1899-12-31T07:10:00.000Z",
-        "type": "Water",
-        "container": "Cup",
-        "heat": "Cold",
-        "location": "Home"
-    },
-    {
-        "seq": 25,
-        "date": "2020-02-29T08:00:00.000Z",
-        "time": "1899-12-30T17:57:00.000Z",
+        "date": "2020-02-28T16:00:00.000Z",
+        "time": "1899-12-30T01:51:17.000Z",
         "type": "Yogurt",
         "container": "Plastic bottle",
         "heat": "Cold",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 4
     },
     {
-        "seq": 26,
-        "date": "2020-02-29T08:00:00.000Z",
-        "time": "1899-12-30T18:10:00.000Z",
+        "date": "2020-02-28T16:00:00.000Z",
+        "time": "1899-12-30T02:04:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 4
     },
     {
-        "seq": 27,
-        "date": "2020-02-29T08:00:00.000Z",
-        "time": "1899-12-30T21:33:00.000Z",
+        "date": "2020-02-28T16:00:00.000Z",
+        "time": "1899-12-30T05:27:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 4
     },
     {
-        "seq": 28,
-        "date": "2020-02-29T08:00:00.000Z",
-        "time": "1899-12-31T00:00:00.000Z",
+        "date": "2020-02-28T16:00:00.000Z",
+        "time": "1899-12-30T07:54:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 4
     },
     {
-        "seq": 29,
-        "date": "2020-02-29T08:00:00.000Z",
-        "time": "1899-12-31T02:12:00.000Z",
+        "date": "2020-02-28T16:00:00.000Z",
+        "time": "1899-12-30T10:06:17.000Z",
         "type": "Soup",
         "container": "Bowl",
-        "heat": "Warm",
-        "location": "Office Building"
+        "heat": "Hot",
+        "location": "Canteen",
+        "day": 4
     },
     {
-        "seq": 30,
-        "date": "2020-02-29T08:00:00.000Z",
-        "time": "1899-12-31T03:14:00.000Z",
+        "date": "2020-02-28T16:00:00.000Z",
+        "time": "1899-12-30T11:08:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 4
     },
     {
-        "seq": 31,
-        "date": "2020-02-29T08:00:00.000Z",
-        "time": "1899-12-31T05:58:00.000Z",
+        "date": "2020-02-28T16:00:00.000Z",
+        "time": "1899-12-30T13:52:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 4
     },
     {
-        "seq": 32,
-        "date": "2020-02-29T08:00:00.000Z",
-        "time": "1899-12-31T07:33:00.000Z",
+        "date": "2020-02-28T16:00:00.000Z",
+        "time": "1899-12-30T15:27:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Cold",
-        "location": "Home"
+        "location": "Home",
+        "day": 4
     },
     {
-        "seq": 33,
-        "date": "2020-03-01T08:00:00.000Z",
-        "time": "1899-12-30T17:44:00.000Z",
+        "date": "2020-02-29T16:00:00.000Z",
+        "time": "1899-12-30T01:38:17.000Z",
         "type": "Milk",
         "container": "Plastic bottle",
         "heat": "Cold",
-        "location": "Canteen"
+        "location": "Canteen",
+        "day": 5
     },
     {
-        "seq": 34,
-        "date": "2020-03-01T08:00:00.000Z",
-        "time": "1899-12-30T18:08:00.000Z",
+        "date": "2020-02-29T16:00:00.000Z",
+        "time": "1899-12-30T02:02:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 5
     },
     {
-        "seq": 35,
-        "date": "2020-03-01T08:00:00.000Z",
-        "time": "1899-12-30T21:14:00.000Z",
+        "date": "2020-02-29T16:00:00.000Z",
+        "time": "1899-12-30T05:08:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 5
     },
     {
-        "seq": 36,
-        "date": "2020-03-01T08:00:00.000Z",
-        "time": "1899-12-30T23:47:00.000Z",
+        "date": "2020-02-29T16:00:00.000Z",
+        "time": "1899-12-30T07:41:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 5
     },
     {
-        "seq": 37,
-        "date": "2020-03-01T08:00:00.000Z",
-        "time": "1899-12-31T01:38:00.000Z",
+        "date": "2020-02-29T16:00:00.000Z",
+        "time": "1899-12-30T09:32:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 5
     },
     {
-        "seq": 38,
-        "date": "2020-03-01T08:00:00.000Z",
-        "time": "1899-12-31T04:23:00.000Z",
+        "date": "2020-02-29T16:00:00.000Z",
+        "time": "1899-12-30T12:17:17.000Z",
         "type": "Water",
-        "container": "Cup",
-        "heat": "Warm",
-        "location": "Office Building"
-    },
-    {
-        "seq": 39,
-        "date": "2020-03-01T08:00:00.000Z",
-        "time": "1899-12-31T06:02:00.000Z",
-        "type": "Water",
-        "container": "Cup",
-        "heat": "Warm",
-        "location": "Office Building"
-    },
-    {
-        "seq": 40,
-        "date": "2020-03-01T08:00:00.000Z",
-        "time": "1899-12-31T07:18:00.000Z",
-        "type": "Water",
-        "container": "Cup",
+        "container": "Plastic bottle",
         "heat": "Cold",
-        "location": "Home"
+        "location": "Outside",
+        "day": 5
     },
     {
-        "seq": 41,
-        "date": "2020-03-02T08:00:00.000Z",
-        "time": "1899-12-30T17:26:00.000Z",
+        "date": "2020-02-29T16:00:00.000Z",
+        "time": "1899-12-30T13:56:17.000Z",
+        "type": "Water",
+        "container": "Plastic bottle",
+        "heat": "Cold",
+        "location": "Outside",
+        "day": 5
+    },
+    {
+        "date": "2020-02-29T16:00:00.000Z",
+        "time": "1899-12-30T15:12:17.000Z",
+        "type": "Water",
+        "container": "Cup",
+        "heat": "Warm",
+        "location": "Home",
+        "day": 5
+    },
+    {
+        "date": "2020-03-01T16:00:00.000Z",
+        "time": "1899-12-30T01:20:17.000Z",
         "type": "Milk",
         "container": "Plastic bottle",
         "heat": "Cold",
-        "location": "Canteen"
+        "location": "Canteen",
+        "day": 6
     },
     {
-        "seq": 42,
-        "date": "2020-03-02T08:00:00.000Z",
-        "time": "1899-12-30T19:06:00.000Z",
+        "date": "2020-03-01T16:00:00.000Z",
+        "time": "1899-12-30T03:00:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 6
     },
     {
-        "seq": 43,
-        "date": "2020-03-02T08:00:00.000Z",
-        "time": "1899-12-30T21:08:00.000Z",
+        "date": "2020-03-01T16:00:00.000Z",
+        "time": "1899-12-30T05:02:17.000Z",
+        "type": "Water",
+        "container": "Glass",
+        "heat": "Warm",
+        "location": "Outside",
+        "day": 6
+    },
+    {
+        "date": "2020-03-01T16:00:00.000Z",
+        "time": "1899-12-30T08:29:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 6
     },
     {
-        "seq": 44,
-        "date": "2020-03-02T08:00:00.000Z",
-        "time": "1899-12-31T00:35:00.000Z",
+        "date": "2020-03-01T16:00:00.000Z",
+        "time": "1899-12-30T11:57:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 6
     },
     {
-        "seq": 45,
-        "date": "2020-03-02T08:00:00.000Z",
-        "time": "1899-12-31T04:03:00.000Z",
+        "date": "2020-03-01T16:00:00.000Z",
+        "time": "1899-12-30T15:06:17.000Z",
+        "type": "Water",
+        "container": "Glass",
+        "heat": "Icy",
+        "location": "Home",
+        "day": 6
+    },
+    {
+        "date": "2020-03-02T16:00:00.000Z",
+        "time": "1899-12-30T02:28:17.000Z",
+        "type": "Yogurt",
+        "container": "Plastic bottle",
+        "heat": "Cold",
+        "location": "Canteen",
+        "day": 7
+    },
+    {
+        "date": "2020-03-02T16:00:00.000Z",
+        "time": "1899-12-30T03:49:17.000Z",
         "type": "Water",
         "container": "Cup",
         "heat": "Warm",
-        "location": "Office Building"
+        "location": "Office Building",
+        "day": 7
+    },
+    {
+        "date": "2020-03-02T16:00:00.000Z",
+        "time": "1899-12-30T06:24:17.000Z",
+        "type": "Soup",
+        "container": "Bowl",
+        "heat": "Hot",
+        "location": "Home",
+        "day": 7
+    },
+    {
+        "date": "2020-03-02T16:00:00.000Z",
+        "time": "1899-12-30T07:54:17.000Z",
+        "type": "Water",
+        "container": "Cup",
+        "heat": "Warm",
+        "location": "Office Building",
+        "day": 7
+    },
+    {
+        "date": "2020-03-02T16:00:00.000Z",
+        "time": "1899-12-30T10:04:17.000Z",
+        "type": "Water",
+        "container": "Cup",
+        "heat": "Warm",
+        "location": "Office Building",
+        "day": 7
+    },
+    {
+        "date": "2020-03-02T16:00:00.000Z",
+        "time": "1899-12-30T13:37:17.000Z",
+        "type": "Milk",
+        "container": "Plastic bottle",
+        "heat": "Cold",
+        "location": "Outside",
+        "day": 7
+    },
+    {
+        "date": "2020-03-02T16:00:00.000Z",
+        "time": "1899-12-30T15:20:17.000Z",
+        "type": "Water",
+        "container": "Glass",
+        "heat": "Cold",
+        "location": "Home",
+        "day": 7
     }
 ]

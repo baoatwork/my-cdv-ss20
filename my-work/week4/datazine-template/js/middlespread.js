@@ -1,4 +1,33 @@
-let origin=[];
+let date1=[[],[],[],[],[],[],[]];
+let date2=[[],[],[],[],[],[],[]];
+let date3=[[],[],[],[],[],[],[]];
+let date4=[[],[],[],[],[],[],[]];
+let date5=[[],[],[],[],[],[],[]];
+let date6=[[],[],[],[],[],[],[]];
+
+let howMany =[{"day": 1,
+               "cups":7},
+              {"day":2,
+               "cups":9},
+              {"day":3,
+               "cups":6},
+              {"day":4,
+               "cups":8},
+              {"day":5,
+               "cups":8},
+              {"day":6,
+               "cups":6},
+              {"day":7,
+               "cups":7}
+
+
+
+
+];
+
+
+let average=7;
+let dayNow = 0;
 
 let viz = d3.select("#container")
   .append("svg")
@@ -10,86 +39,74 @@ let viz = d3.select("#container")
 
 
 
+viz.append("svg:image")
+   .attr("xlink:href","resource/paper.png")
+   .attr("width",1200)
+   .attr("x",0)
+   .attr("y",0)
+
+;
+
+viz.append("svg:image")
+   .attr("xlink:href","resource/paperreverse.png")
+   .attr("width",1200)
+   .attr("x",1200)
+   .attr("y",0)
+
+;
+
+
+
+
+
 
 function gotData(newData){
   //console.log(newData);
 
-  let drinkMilk = newData.filter(filterMilk);
-  console.log(drinkMilk);
-
-  let drinkWater = newData.filter(filterWater);
-
-  let drinkSoup = newData.filter(filterSoup);
-
-  let drinkYogurt = newData.filter(filterYogurt);
 
 
-  let drawMilk= viz.selectAll(".happyMilk").data(drinkMilk).enter()
+
+
+  let draw= viz.selectAll(".happyStick").data(newData).enter()
               .append("g")
-              .attr("class","happyMilk");
+              .attr("class","happyStick");
 
-      drawMilk.append("rect")
-      .attr("x",xPosition)
-      .attr("y",yPosition)
-      .attr("width",40)
-      .attr("height",40)
-      .attr("fill",whatColor)
+      draw.append("line")
+      .attr("x1",xPosition1)
+      .attr("y1",yPosition1)
+      .attr("x2",xPosition2)
+      .attr("y2",yPosition1)
+      .attr("stroke",whatColor)
+      .attr("stroke-width",10)
+      .attr("stroke-dasharray",dash1)
 
       ;
 
-  let drawWater= viz.selectAll(".happyWater").data(drinkWater).enter()
-              .append("g")
-              .attr("class","happyWater");
-
-      drawWater.append("circle")
-      .attr("cx",xPosition)
-      .attr("cy",yPosition)
-      .attr("r",20)
-      .attr("fill",whatColor)
+      draw.append("line")
+      .attr("x1",xPosition3)
+      .attr("y1",yPosition2)
+      .attr("x2",xPosition4)
+      .attr("y2",yPosition2)
+      .attr("stroke",whatColor)
+      .attr("stroke-width",10)
+      .attr("stroke-dasharray",dash2)
 
       ;
 
 
+      draw.append("line")
+      .attr("x1",xPosition5)
+      .attr("y1",yPosition3)
+      .attr("x2",xPosition6)
+      .attr("y2",yPosition3)
+      .attr("stroke",whatColor)
+      .attr("stroke-width",10)
+      .attr("stroke-dasharray",dash3)
 
-  //    draw.append("rect")
-  //    .attr("x",xPosition)
-  //    .attr("y",yPosition)
-  //    .attr("width",10)
-  //    .attr("height",150)
-  //    .attr("fill",whatColor)
-  //
-  // ;
-  //
-  //   draw.append("circle")
-  //   .attr("cx",xPosition)
-  //   .attr("cy",yPosition)
-  //   .attr("r",20)
-  //   .attr("fill",whatColor)
-  //
-  //
-  // ;
-  //
-  //
-  //
-  //
-  //   draw.append("ellipse")
-  //   .attr("cx",2000)
-  //   .attr("cy",100)
-  //   .attr("rx",12)
-  //   .attr("ry",20)
-  //   .attr("fill","#00896C")
-  //
-  //   ;
-  //
-  //
-  //   draw.append("ellipse")
-  //   .attr("cx",2000)
-  //   .attr("cy",100)
-  //   .attr("rx",8)
-  //   .attr("ry",14)
-  //   .attr("fill","white")
-  //
-  //   ;
+      ;
+
+
+
 
 
 }
@@ -100,40 +117,127 @@ function gotData(newData){
 
 
 
-function filterMilk(sample){
-  if(sample.type == "Milk"){
-    return true;
-  }else{
-    return false;
-  }
 
+
+
+
+let yinyang =viz.selectAll(".yinYang").data(howMany).enter();
+
+
+yinyang.append("svg:image")
+    .attr("xlink:href",whichImg)
+    .attr("width",130)
+    .attr("height",130)
+    .attr("x",yinyangX)
+    .attr("y",yinyangY)
+
+ ;
+
+
+ yinyang.append("text")
+    .text(whatDay)
+    .attr("font-family",'Liu Jian Mao Cao')
+    .attr("font-size",30)
+    .attr("x",130)
+    .attr("y",dayY)
+
+;
+
+
+
+
+
+ viz.append("svg:image")
+    .attr("xlink:href","resource/song.png")
+    .attr("width",700)
+    .attr("x",1700)
+    .attr("y",-20)
+
+;
+
+viz.append("svg:image")
+   .attr("xlink:href","resource/he.png")
+   .attr("width",350)
+   .attr("x",1500)
+   .attr("y",450)
+
+;
+
+//For day 1-7
+function whatDay(sample){
+  dayNow = dayNow + 1;
+
+  return "Day "+  dayNow;
 }
 
-function filterWater(sample){
-  if(sample.type == "Water"){
-    return true;
-  }else{
-    return false;
-  }
-
+function dayY(sample){
+  return sample.day *100 ;
 }
 
-function filterSoup(sample){
-  if(sample.type == "Soup"){
-    return true;
-  }else{
-    return false;
-  }
+//for the yinyang image
 
+function whichImg(sample){
+  check = sample.cups;
+
+  if(check > average){
+    return "resource/yang.png";
+  }else{
+    return "resource/yin.png";
+  }
 }
 
-function filterYogurt(sample){
-  if(sample.type == "Yogurt"){
-    return true;
-  }else{
-    return false;
-  }
+function yinyangY(sample){
+  return sample.day * 100 -72;
+}
 
+function yinyangX(sample){
+  check = sample.cups;
+  if(check > average){
+    return 30;
+  }else{
+    return 20;
+  }
+}
+
+// for the look of the bar
+
+function dash1(sample){
+  check = sample.type;
+  if (check == "Water"){
+    return "100,10";
+  }else if (check == "Soup"){
+    return "45,35";
+  }else if(check == "Yogurt"){
+    return "0,45,35";
+  }else if (check == "Milk"){
+    return "35,10,35";
+  }
+}
+
+function dash2(sample){
+  check = sample.container;
+  if (check == "Plastic bottle"){
+    return "100,10";
+  }else if (check == "Glass"){
+    return "45,35";
+  }else if(check == "Bowl"){
+    return "0,45,35";
+  }else if (check == "Cup"){
+    return "35,10,35";
+  }
+}
+
+function dash3(sample){
+  check = sample.location;
+  if (check == "Office Building"){
+    return "100,10";
+  }else if (check == "Home"){
+    return "45,35";
+  }else if(check == "Outdoors"){
+    return "0,45,35";
+  }else if (check == "Canteen"){
+    return "35,10,35";
+  }
 }
 
 
@@ -143,57 +247,90 @@ function whatColor(sample){
   if (check == "Warm"){
     return "#FB966E";
   }else if(check == "Cold"){
-    return "#33A6B8";
+    return "#66BAB7";
   }else if(check == "Hot"){
     return "#CB4042";
+  }else if(check == "Icy"){
+    return "#1E88A8";
   }
 }
 
 
-function xPosition(sample,i){
+// for the position of the bars
 
-  return sample.seq *20;
+function xPosition1(sample,i){
+
+  check = sample.day -1;
+
+  date1[check].push(1);
+   //console.log(date1[check].length);
+
+  return date1[check].length * 160 +100;
+
 
 }
 
-function yPosition(sample){
-  check = sample.location;
+function xPosition2(sample,i){
+  check = sample.day -1;
 
-  if (check == "Canteen"){
-    return 100;
-  }else if(check == "Office Building"){
-    return 400;
-  }else{
-    return 700;
-  }
+  date2[check].push(1);
+  // console.log(date2[check].length);
+
+  return date2[check].length * 160 + 180;
 }
 
-function whatRadius(sample){
-  check = sample.container;
+function xPosition3(sample,i){
+  check = sample.day -1;
 
-  if(check == "Plastic Bottle"){
-    return 5;
-  }else if(check == "Cup"){
-    return 10;
-  }else{
-    return 20;
-  }
+  date3[check].push(1);
+   //console.log(date3[check].length);
+
+  return date3[check].length * 160 +100;
+}
+
+function xPosition4(sample,i){
+  check = sample.day -1;
+
+  date4[check].push(1);
+  // console.log(date4[check].length);
+
+  return date4[check].length * 160 + 180;
+}
+
+function xPosition5(sample,i){
+  check = sample.day -1;
+
+  date5[check].push(1);
+   //console.log(date5[check].length);
+
+  return date5[check].length * 160 +100;
+}
+
+function xPosition6(sample,i){
+  check = sample.day -1;
+
+  date6[check].push(1);
+  // console.log(date6[check].length);
+
+  return date6[check].length * 160 + 180;
 }
 
 
-function whatColorCircle(sample){
-  check = sample.heat;
 
-  if (check == "Cold"){
-    return "#434343";
-  }else if (check == "Warm"){
-    return "#FFBA84";
-  }else {
-    return "#AB3B3A";
-  }
+
+function yPosition1(sample){
+  check = sample.day;
+
+  return check*100-25;
 }
 
+function yPosition2(sample){
+  check = sample.day;
 
-function xPositionPage3(sample){
-  check = sample.date;
+  return check*100-5;
+}
+
+function yPosition3(sample){
+  check = sample.day;
+  return check *100 +15;
 }
