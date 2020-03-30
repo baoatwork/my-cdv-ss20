@@ -161,7 +161,7 @@ function gotData(incomingData){
     // take care of updating elements
 
     let exitingElements = datagroups.exit();
-    //exitingElements.transition().attr("transform",exitingLocation).remove();
+    exitingElements.transition().attr("transform",exitingLocation).remove();
 
     datagroups.select("circle")
     .attr("r",myR)
@@ -189,13 +189,15 @@ function gotData(incomingData){
   // and changes the year of interest
   // and updates the text element that displays the year.
   setInterval(function(){
-    currentYearIndex++;
-    if(currentYearIndex>dates.length){
+
+    if(currentYearIndex>=dates.length){
       currentYearIndex = 0;
     }
+
     currentYear = dates[currentYearIndex];
     year.text(currentYear)
     drawViz();
+    currentYearIndex++;
   }, 100);
 
 
