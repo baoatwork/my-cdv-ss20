@@ -146,7 +146,12 @@ function gotData(incomingData){
     }
     function getIncomingLocation(d,i){
       let x = xScale(d.fert);
-      let y = -30;
+      let y = -50;
+      return "translate("+x+","+y+")";
+    }
+    function exitingLocation(d,i){
+      let x = xScale(d.fert);
+      let y = h+50;
       return "translate("+x+","+y+")";
     }
 
@@ -154,6 +159,9 @@ function gotData(incomingData){
 
 
     // take care of updating elements
+
+    let exitingElements = datagroups.exit();
+    //exitingElements.transition().attr("transform",exitingLocation).remove();
 
     datagroups.select("circle")
     .attr("r",myR)
@@ -188,7 +196,7 @@ function gotData(incomingData){
     currentYear = dates[currentYearIndex];
     year.text(currentYear)
     drawViz();
-  }, 1000);
+  }, 100);
 
 
 
