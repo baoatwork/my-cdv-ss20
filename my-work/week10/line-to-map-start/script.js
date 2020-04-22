@@ -86,8 +86,9 @@ d3.json("mainland.geojson").then(function(geoData){
 
 
     //let pixelV = projection([lon,lat]);
+    let photo = viz.append("g").attr("class","photo");
 
-    viz.append("svg:image")
+    photo.append("svg:image")
     .attr("xlink:href","littlebai.png")
     .attr("x",function(){
       return projection([lon,lat])[0]
@@ -95,7 +96,34 @@ d3.json("mainland.geojson").then(function(geoData){
     .attr("y",function(){
       return projection([lon,lat])[1]
     })
-    .attr("width",40)
+    .attr("width",40);
+
+    function goGoGo(){
+
+        let x = projection([lon,lat])[0];
+        let y = projection([lon,lat])[1];
+
+
+      photo.select("image").transition().duration(1000).attr("x",x).attr("y",y);
+
+
+    }
+
+    function playSound(){
+      let s = document.getElementById("snd");
+
+      s.play();
+    }
+
+    document.getElementById("step").addEventListener("click",function(){
+
+        lon = Math.random() *30 +90;
+        lat = Math.random() *25 +20;
+        console.log(lon,lat);
+        playSound();
+        goGoGo();
+      });
+
 
 });
 

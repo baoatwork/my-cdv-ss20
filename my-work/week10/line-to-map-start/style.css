@@ -2,3 +2,19 @@ body{
   text-align: center;
   margin-top:30px;
 }
+
+img{
+  width:100px;
+  cursor: pointer;
+}
+img:hover{
+  opacity: 0.8;
+}
+
+.buttons div{
+  display: inline-block;
+  outline: dashed black 1px;
+  width: 100px;
+  padding: 5px;
+
+}
