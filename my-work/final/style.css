@@ -1,0 +1,46 @@
+body{
+  margin: 0;
+  background-color:#FCFAF2;
+}
+
+img{
+  width:100px;
+  cursor: pointer;
+}
+img:hover{
+  opacity: 0.8;
+}
+
+.buttons div{
+  display: inline-block;
+  outline: dashed black 1px;
+  width: 100px;
+  padding: 5px;
+
+}
+
+svg{
+  border: 5px double #554236;
+  border-radius:2%;
+
+
+
+  /* top: 20px;
+  left: 100px; */
+}
+
+#welcomebutton{
+  fill:none;
+  pointer-events:all;
+  cursor:pointer;
+  stroke: black;
+  stroke-width: 3px;
+  stroke-dasharray: 80 120 80 40;
+  stroke-dashoffset: 20;
+  transition: all ease 0.1s;
+}
+
+#welcomebutton:hover{
+  stroke-dashoffset: 0;
+  stroke-dasharray: 640;
+}
