@@ -40,7 +40,7 @@
         "thrid": "陆游",
         "thridt": 4,
         "name": "京华",
-        "region": "South Central China",
+        "region": "North China",
         "lon": 116,
         "lat": 34.8
     },
@@ -85,7 +85,7 @@
         "thrid": "朱敦儒",
         "thridt": 4,
         "name": "洛阳",
-        "region": "South Central China",
+        "region": "North China",
         "lon": 114,
         "lat": 34.7
     },

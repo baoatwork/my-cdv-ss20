@@ -12,7 +12,13 @@ let playOnce = false;
 
 let smallMap = false;
 
-let south = ["Jiangxi","Fujian","Guangdong","Hunan","Guangxi","Guizhou"];
+let transNorm = d3.transform()
+  .translate([0,0])
+  .scale(1)
+;
+let repeatScale = d3.scaleLinear().domain([3,331]).range([20,260]);
+
+
 
 //preload
 function preload(){
@@ -75,17 +81,18 @@ d3.json("mainland.geojson").then(function(geoData){
       .scale(1.5)
     ;
     let transCentral = d3.transform()
-      .translate([-400,-240])
-      .scale(1.3)
+      .translate([-600,-400])
+      .scale(1.5)
     ;
     let transWest = d3.transform()
       .translate([0,-240])
       .scale(1.5)
     ;
     let transNorth = d3.transform()
-      .translate([-450,0])
+      .translate([-600,0])
       .scale(1.5)
     ;
+
 
     let appearScroll = d3.transform()
       .translate([1100,-50])
@@ -116,7 +123,7 @@ d3.json("mainland.geojson").then(function(geoData){
       viz.select("#infotitle").transition().text(check.region);
       viz.select("#infotext").transition().text(function(){
         if(check.region == "South Central China"){
-          return "中部";
+          return "中南";
         }else if(check.region == "East China"){
           return "东部";
         }else if(check.region == "Southwest China"){
@@ -164,10 +171,10 @@ d3.json("mainland.geojson").then(function(geoData){
           viz.select("#bgmain")
             .transition()
             .duration(1000)
-            .attr("width",2080)
-            .attr("height",1040)
-            .attr("x",-400)
-            .attr("y",-240)
+            .attr("width",2400)
+            .attr("height",1200)
+            .attr("x",-600)
+            .attr("y",-400)
           ;
 
           myMap.transition().duration(1000)
@@ -208,7 +215,7 @@ d3.json("mainland.geojson").then(function(geoData){
             .duration(1000)
             .attr("width",2400)
             .attr("height",1200)
-            .attr("x",-450)
+            .attr("x",-600)
             .attr("y",0)
           ;
 
@@ -245,27 +252,25 @@ d3.json("mainland.geojson").then(function(geoData){
       viz.select(".scroll").transition().duration(1000).attr("transform",appearScroll);
       myScroll.select("#scrolltitlechi").text(d.placeschi);
       myScroll.select("#scrolltitleeng").text(d.place);
+      myScroll.select("#scrollcontent2").text(d.name);
+      myScroll.select("#scrollcontent4").transition().duration(1000)
+      .attr("width",repeatScale(d.appear))
+      .attr("fill",function(){
+        let myScale = repeatScale(d.appear);
+        if(myScale <= 50){
+          return "#81C7D4";
+        }else if(myScale >= 150){
+          return "#006284";
+        }else{
+          return "#33A6B8";
+        }
+      })
+      ;
+      myScroll.select("#scrollcontent5").text(d.appear);
+      myScroll.select("#scrollcontent7").text(d.first+" - - "+d.firstt);
+      myScroll.select("#scrollcontent8").text(d.second+" - - "+d.secondt);
+      myScroll.select("#scrollcontent9").text(d.thrid+" - - "+d.thridt);
     }
-
-
-    let mapPath = myMap.selectAll(".regions").data(geoData.features).enter()
-      .append("path")
-        .attr("class", "regions")
-        .attr("d", pathMaker)
-        .attr("fill","rgb(250,220,200)")
-        .attr("opacity",0)
-        .on("mouseover",overRegion)
-        .on("mouseout",function(){
-          mapPath.transition().attr("opacity",0);
-          if(!smallMap){
-            viz.select("#infotitle").transition().text("Big Map");
-            viz.select("#infotext").transition().text("大地图");
-          }
-
-        })
-        .on("click",intoDetail)
-
-    ;
 
     let placeButtons = myPlace.selectAll(".city").data(incomingData).enter()
        .append("svg:image")
@@ -300,7 +305,7 @@ d3.json("mainland.geojson").then(function(geoData){
          });
          viz.select("#infotext").transition().text(function(){
            if(d.region == "South Central China"){
-             return "中部";
+             return "中南";
            }else if(d.region == "East China"){
              return "东部";
            }else if(d.region == "Southwest China"){
@@ -313,6 +318,35 @@ d3.json("mainland.geojson").then(function(geoData){
        .on("click",cityDetail)
 
     ;
+
+    let mapPath = myMap.selectAll(".regions").data(geoData.features).enter()
+      .append("path")
+        .attr("class", "regions")
+        .attr("d", pathMaker)
+        .attr("fill","rgb(250,220,200)")
+        .attr("opacity",0)
+        .attr("display",function(d,i){
+          let check =d.properties;
+          if (check.region == "Northwest China"){
+            return "none";
+          }else{
+            return "block";
+          }
+        })
+        .on("mouseover",overRegion)
+        .on("mouseout",function(){
+          mapPath.transition().attr("opacity",0);
+          if(!smallMap){
+            viz.select("#infotitle").transition().text("Big Map");
+            viz.select("#infotext").transition().text("大地图");
+          }
+
+        })
+        .on("click",intoDetail)
+
+    ;
+
+
     });
   })
 
@@ -345,7 +379,7 @@ d3.json("mainland.geojson").then(function(geoData){
      .text("heihei")
      .attr("x",250)
      .attr("y",280)
-     .attr("font-family",'Baloo Bhaina 2')
+     .attr("font-family",'ZCOOL XiaoWei')
      .attr("font-size",45)
      .attr("text-anchor","middle")
      .attr("id","scrolltitleeng")
@@ -360,6 +394,94 @@ d3.json("mainland.geojson").then(function(geoData){
      .attr("font-size",60)
      .attr("text-anchor","middle")
      .attr("id","scrolltitlechi")
+  ;
+
+  myScroll.append("text")
+     .text("古称 Ancient Name")
+     .attr("x",100)
+     .attr("y",325)
+     .attr("font-family",'Ma Shan Zheng')
+     .attr("font-size",25)
+     .attr("id","scrollcontent1")
+  ;
+
+  myScroll.append("text")
+     .text("喵喵")
+     .attr("x",250)
+     .attr("y",370)
+     .attr("font-family",'ZCOOL XiaoWei')
+     .attr("font-size",35)
+     .attr("text-anchor","middle")
+     .attr("id","scrollcontent2")
+  ;
+
+  myScroll.append("text")
+     .text("出现次数 Repeat")
+     .attr("x",100)
+     .attr("y",410)
+     .attr("font-family",'Ma Shan Zheng')
+     .attr("font-size",25)
+     .attr("id","scrollcontent3")
+  ;
+
+  myScroll.append("rect")
+    .attr("x",120)
+    .attr("y",430)
+    .attr("width",260)
+    .attr("fill","#81C7D4")
+    .attr("height",30)
+    .attr("id","scrollcontent4")
+    .attr("rx",5)
+    .attr("ry",5)
+  ;
+
+  myScroll.append("text")
+     .text("7")
+     .attr("x",250)
+     .attr("y",455)
+     .attr("font-family",'ZCOOL XiaoWei')
+     .attr("font-size",30)
+     .attr("text-anchor","middle")
+     .attr("id","scrollcontent5")
+  ;
+
+  myScroll.append("text")
+     .text("诗人 Poets")
+     .attr("x",100)
+     .attr("y",510)
+     .attr("font-family",'Ma Shan Zheng')
+     .attr("font-size",25)
+     .attr("id","scrollcontent6")
+  ;
+
+  myScroll.append("text")
+     .text("包包大人")
+     .attr("x",250)
+     .attr("y",560)
+     .attr("font-family",'ZCOOL XiaoWei')
+     .attr("font-size",30)
+     .attr("text-anchor","middle")
+     .attr("id","scrollcontent7")
+  ;
+
+  myScroll.append("text")
+     .text("包包大人")
+     .attr("x",250)
+     .attr("y",620)
+     .attr("font-family",'ZCOOL XiaoWei')
+     .attr("font-size",30)
+     .attr("text-anchor","middle")
+     .attr("id","scrollcontent8")
+  ;
+
+  myScroll.append("text")
+     .text("包包大人")
+     .attr("x",250)
+     .attr("y",680)
+     .attr("font-family",'ZCOOL XiaoWei')
+     .attr("font-size",30)
+     .attr("text-anchor","middle")
+     .attr("id","scrollcontent9")
   ;
 
   //current information
@@ -397,6 +519,30 @@ d3.json("mainland.geojson").then(function(geoData){
      .attr("opacity",0)
   ;
 
+  //menu
+  viz.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("width",400)
+    .attr("fill","#724938")
+    .attr("height",30)
+    .attr("id","menu")
+    .attr("opacity",0)
+    .attr("rx",10)
+    .attr("ry",10)
+
+  ;
+
+  viz.append("svg:image")
+     .attr("xlink:href","pic/whitehome.png")
+     .attr("width",25)
+     .attr("x",30)
+     .attr("y",2)
+     .attr("id","menuicon1")
+     .attr("opacity",0)
+
+
+  ;
 
   //background pic at welcome page
   viz.append("svg:image")
@@ -476,6 +622,46 @@ d3.json("mainland.geojson").then(function(geoData){
   //     .attr("opacity",0.8)
   //   ;
   // });
+  document.getElementById("menuicon1").addEventListener("mouseover",function(){
+    viz.select("#menuicon1").transition()
+      .attr("xlink:href","pic/redhome.png")
+      .attr("cursor","pointer");
+    console.log(1);
+  });
+  document.getElementById("menuicon1").addEventListener("mouseout",function(){
+    viz.select("#menuicon1").transition().attr("xlink:href","pic/whitehome.png");
+  });
+  document.getElementById("menuicon1").addEventListener("click",function(){
+    if(smallMap){
+      smallMap =false;
+      swish.play();
+
+      viz.select("#bgmain")
+        .transition()
+        .duration(1000)
+        .attr("width",1600)
+        .attr("height",800)
+        .attr("x",0)
+        .attr("y",0)
+      ;
+
+      viz.select(".mymap").transition().duration(1000)
+        .attr("transform",transNorm)
+        .attr("display","block")
+      ;
+
+      viz.select(".places").transition().duration(1000)
+        .attr("transform",transNorm)
+      ;
+
+      viz.selectAll(".city").transition().attr("display","none");
+
+      viz.select(".scroll").transition().duration(1000).attr("transform","translate(1100 -950)");
+      viz.select("#infotitle").transition().text("Big Map");
+      viz.select("#infotext").transition().text("大地图");
+    }
+  });
+
 
   document.getElementById("welcomebutton").addEventListener("click", function(){
     welcomeBgm.fade(0,3);
@@ -517,6 +703,19 @@ d3.json("mainland.geojson").then(function(geoData){
       .attr("opacity",1)
     ;
     viz.select("#infotext")
+      .transition()
+      .delay(3000)
+      .duration(9000)
+      .attr("opacity",1)
+    ;
+
+    viz.select("#menu")
+      .transition()
+      .delay(3000)
+      .duration(9000)
+      .attr("opacity",1)
+    ;
+    viz.select("#menuicon1")
       .transition()
       .delay(3000)
       .duration(9000)
