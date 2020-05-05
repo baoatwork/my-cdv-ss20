@@ -44,3 +44,11 @@ svg{
   stroke-dashoffset: 0;
   stroke-dasharray: 640;
 }
+
+/* .regions{
+  cursor:pointer;
+} */
+
+.city{
+  cursor:pointer;
+}

@@ -1,0 +1,19 @@
+body{
+  text-align: center;
+  margin-top:30px;
+}
+
+/* .datagroup circle:hover{
+  opacity:1;
+  transform:scale(2);
+  transition:transform 1s;
+}
+
+.datagroup text{
+  cursor: pointer;
+} */
+
+text{
+  /* text-anchor:middle; */
+  fill:#ff5333;
+}
