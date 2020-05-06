@@ -3,6 +3,13 @@ body{
   background-color:#FCFAF2;
 }
 
+.container{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+
+}
+
 img{
   width:100px;
   cursor: pointer;

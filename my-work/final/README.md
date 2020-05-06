@@ -1,0 +1,45 @@
+# The Way Home
+
+
+[Link on Zeit](https://my-cdv-ss20.now.sh/my-work/final/index.html)
+
+## Description
+   The map of Songci is an interactive map project. The project focuses on the cities appeared in Songci and picks out representative ones to make visulizations. As for interactive functions, this project includes diverse sound, art and story elements. Aiming at providing interactive experience for users to pursue a better understanding of this poetry style associated with the history of the Song Dynasty, this project will connect the historical information of cities to the map of Song to introduce diverse aspects and stories of Song Ci and the Song Dynasty.
+
+
+## Creaters
+   Sumner Feng
+
+## Demos & Documentation
+
+
+## Guide
+
+
+## Ciations
+   #### -For Dataset-
+   Chinese Poetry by Jackey Gao from [Github](https://github.com/jackeyGao/chinese-poetry)
+
+   #### -For Code-
+   JS Library: [D3.js](https://d3js.org/)
+
+   #### -For Art Source-
+   The background map: from [Tale of Wuxia: The Pre-Sequel](http://xkqz.fhyx.com/)
+
+   The background images: by 喂了呜喵王 from [Pixiv](https://www.pixiv.net/artworks/63124911)
+
+   #### -For Sound Source-
+   The start page Bgm: 居所·结屋山涧曲 from 绘真·妙笔千山
+
+   The welcome Bgm for the map: 千里江山图 from 绘真·妙笔千山
+
+   The ordinary Bgm for the map: 孤鸟·凄然一方 from 绘真·妙笔千山
+
+## Screenshots
+
+
+
+
+## Update History
+   2020.05.05: The first complete version
+   2020.05.06: Added some buttons to the menu and added the descriptive readme file

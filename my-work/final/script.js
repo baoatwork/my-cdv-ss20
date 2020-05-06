@@ -11,6 +11,7 @@ let enterTime;
 let playOnce = false;
 
 let smallMap = false;
+let showstory = false;
 
 let transNorm = d3.transform()
   .translate([0,0])
@@ -541,6 +542,25 @@ d3.json("mainland.geojson").then(function(geoData){
      .attr("id","menuicon1")
      .attr("opacity",0)
 
+  ;
+
+  viz.append("svg:image")
+     .attr("xlink:href","pic/whitebook.png")
+     .attr("width",25)
+     .attr("x",110)
+     .attr("y",2)
+     .attr("id","menuicon2")
+     .attr("opacity",0)
+
+  ;
+
+  viz.append("svg:image")
+     .attr("xlink:href","pic/whiteglobe.png")
+     .attr("width",25)
+     .attr("x",190)
+     .attr("y",2)
+     .attr("id","menuicon3")
+     .attr("opacity",0)
 
   ;
 
@@ -615,13 +635,9 @@ d3.json("mainland.geojson").then(function(geoData){
      .attr("id","myname")
   ;
 
-  // document.getElementById("welcomebutton").addEventListener("mouseover", function(){
-  //   console.log(1);
-  //
-  //   viz.select("#buttontext")
-  //     .attr("opacity",0.8)
-  //   ;
-  // });
+
+
+  //menu button functions
   document.getElementById("menuicon1").addEventListener("mouseover",function(){
     viz.select("#menuicon1").transition()
       .attr("xlink:href","pic/redhome.png")
@@ -632,6 +648,7 @@ d3.json("mainland.geojson").then(function(geoData){
     viz.select("#menuicon1").transition().attr("xlink:href","pic/whitehome.png");
   });
   document.getElementById("menuicon1").addEventListener("click",function(){
+    press.play();
     if(smallMap){
       smallMap =false;
       swish.play();
@@ -662,7 +679,34 @@ d3.json("mainland.geojson").then(function(geoData){
     }
   });
 
+  document.getElementById("menuicon2").addEventListener("mouseover",function(){
+    viz.select("#menuicon2").transition()
+      .attr("xlink:href","pic/redbook.png")
+      .attr("cursor","pointer");
 
+  });
+  document.getElementById("menuicon2").addEventListener("mouseout",function(){
+    viz.select("#menuicon2").transition().attr("xlink:href","pic/whitebook.png");
+  });
+
+
+  document.getElementById("menuicon3").addEventListener("mouseover",function(){
+    viz.select("#menuicon3").transition()
+      .attr("xlink:href","pic/redglobe.png")
+      .attr("cursor","pointer");
+
+  });
+  document.getElementById("menuicon3").addEventListener("mouseout",function(){
+    viz.select("#menuicon3").transition().attr("xlink:href","pic/whiteglobe.png");
+  });
+  document.getElementById("menuicon3").addEventListener("click",function(){
+    press.play();
+    window.open("https://github.com/baoatwork/my-cdv-ss20/tree/master/my-work/final");
+  });
+
+
+
+  // welcome page button function
   document.getElementById("welcomebutton").addEventListener("click", function(){
     welcomeBgm.fade(0,3);
     enterTime = millis();
@@ -721,6 +765,18 @@ d3.json("mainland.geojson").then(function(geoData){
       .duration(9000)
       .attr("opacity",1)
     ;
+    viz.select("#menuicon2")
+      .transition()
+      .delay(3000)
+      .duration(9000)
+      .attr("opacity",1)
+    ;
+    viz.select("#menuicon3")
+      .transition()
+      .delay(3000)
+      .duration(9000)
+      .attr("opacity",1)
+    ;
 
     viz.select(".mymap")
       .transition()
@@ -738,120 +794,3 @@ d3.json("mainland.geojson").then(function(geoData){
 
 
 });
-
-
-// // IMPORT DATA
-// d3.json("mainland.geojson").then(function(geoData){
-//   d3.csv("china-pop-2018.csv").then(function(incomingData){
-//
-//     incomingData = incomingData.map(function(d,i){
-//       d.population = Number(d.population);
-//       return d;
-//     });
-//
-//     let minPop = d3.min(incomingData,function(d,i){
-//       return d.population;
-//     });
-//
-//     let maxPop = d3.max(incomingData,function(d,i){
-//       return d.population;
-//     });
-//
-//     let colorScale = d3.scaleLinear().domain([minPop,maxPop]).range(["white","red"]);
-//     // PRINT DATA
-//     console.log(geoData);
-//
-//     // SCALES (to translate data values to pixel values)
-//     // let xDomain = d3.extent(incomingData, function(d){ return Number(d.year); })
-//     // let xScale = d3.scaleLinear().domain(xDomain).range([padding,w-padding]);
-//     // let yDomain = d3.extent(incomingData, function(d){ return Number(d.birthsPerThousand); })
-//     // let yScale = d3.scaleLinear().domain(yDomain).range([h-padding,padding]);
-//
-//    let projection = d3.geoEqualEarth()
-//       //.translate([w/2,h/2])
-//       //.center([103.8,34.1])
-//       .fitExtent([[padding,padding],[w-padding,h-padding]],geoData)
-//    ;
-//
-//     // PATH (line) MAKER - gets points, returns one of those complicated looking path strings
-//     // let lineMaker = d3.line()
-//     //     .x(function(d){
-//     //       return xScale(Number(d.year));
-//     //     })
-//     //     .y(function(d){
-//     //       return yScale(Number(d.birthsPerThousand));
-//     //     })
-//     // ;
-//
-//     let pathMaker = d3.geoPath(projection);
-//
-//     // CREATE SHAPES ON THE PAGE!
-//     viz.selectAll(".regions").data(geoData.features).enter()
-//       .append("path")
-//         .attr("class", "regions")
-//         .attr("d", pathMaker)
-//         .attr("fill", function(d,i){
-//           let check = incomingData.find(function(dp){
-//             if (dp.province == d.properties.name){
-//               return true;
-//             }else{
-//               return false;
-//             }
-//           });
-//
-//           if (check != undefined){
-//             return colorScale(check.population);
-//           }else{
-//             return "black"
-//           }
-//
-//         })
-//         .attr("stroke", "red")
-//
-//     ;
-//
-//
-//
-//     //let pixelV = projection([lon,lat]);
-//     let photo = viz.append("g").attr("class","photo");
-//
-//     photo.append("svg:image")
-//     .attr("xlink:href","littlebai.png")
-//     .attr("x",function(){
-//       return projection([lon,lat])[0]
-//     })
-//     .attr("y",function(){
-//       return projection([lon,lat])[1]
-//     })
-//     .attr("width",40);
-//
-//     function goGoGo(){
-//
-//         let x = projection([lon,lat])[0];
-//         let y = projection([lon,lat])[1];
-//
-//
-//       photo.select("image").transition().duration(1000).attr("x",x).attr("y",y);
-//
-//
-//     }
-//
-//     function playSound(){
-//       let s = document.getElementById("snd");
-//
-//       s.play();
-//     }
-//
-//     document.getElementById("step").addEventListener("click",function(){
-//
-//         lon = Math.random() *30 +90;
-//         lat = Math.random() *25 +20;
-//         console.log(lon,lat);
-//         playSound();
-//         goGoGo();
-//       });
-//
-//
-// });
-//
-// });
