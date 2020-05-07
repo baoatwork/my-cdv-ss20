@@ -547,7 +547,7 @@ d3.json("mainland.geojson").then(function(geoData){
   viz.append("svg:image")
      .attr("xlink:href","pic/whitebook.png")
      .attr("width",25)
-     .attr("x",110)
+     .attr("x",100)
      .attr("y",2)
      .attr("id","menuicon2")
      .attr("opacity",0)
@@ -557,12 +557,105 @@ d3.json("mainland.geojson").then(function(geoData){
   viz.append("svg:image")
      .attr("xlink:href","pic/whiteglobe.png")
      .attr("width",25)
-     .attr("x",190)
+     .attr("x",170)
      .attr("y",2)
      .attr("id","menuicon3")
      .attr("opacity",0)
 
   ;
+
+  viz.append("svg:image")
+     .attr("xlink:href","pic/whitegraph.png")
+     .attr("width",25)
+     .attr("x",240)
+     .attr("y",2)
+     .attr("id","menuicon4")
+     .attr("opacity",0)
+
+  ;
+
+  //story
+  let myStory = viz.append("g")
+    .attr("class","story")
+    .attr("display","none");
+
+  myStory.append("rect")
+    .attr("x",0)
+    .attr("y",300)
+    .attr("width",1600)
+    .attr("height",250)
+    .attr("id","storybox")
+    .attr("opacity",0.7)
+
+  ;
+
+  myStory.append("text")
+     .text("Welcome to Map of Songci! You can check out different places in China during Song dynasty (860-1279 AC) on this map.")
+     .attr("x",800)
+     .attr("fill","rgb(220,220,220)")
+     .attr("y",330)
+     .attr("font-family",'ZCOOL XiaoWei')
+     .attr("font-size",20)
+     .attr("text-anchor","middle")
+     .attr("id","storyeng1")
+
+  ;
+
+  myStory.append("text")
+     .text("You can also explore their connection with the Chinese poetry Songci here. Enjoy your trip into the history!")
+     .attr("x",800)
+     .attr("fill","rgb(220,220,220)")
+     .attr("y",370)
+     .attr("font-family",'ZCOOL XiaoWei')
+     .attr("font-size",20)
+     .attr("text-anchor","middle")
+     .attr("id","storyeng2")
+   ;
+
+   myStory.append("text")
+      .text("(Tip: If the map is too large for your window, please press ctrl/command and scroll your mouse wheel to resize it.)")
+      .attr("x",800)
+      .attr("fill","rgb(220,220,220)")
+      .attr("y",410)
+      .attr("font-family",'ZCOOL XiaoWei')
+      .attr("font-size",20)
+      .attr("text-anchor","middle")
+      .attr("id","storyeng3")
+    ;
+
+    myStory.append("text")
+       .text("欢迎使用宋词地图！你可以在这张地图上探索中国在宋朝时 (公元960至1279年) 的不同区域和地点。")
+       .attr("x",800)
+       .attr("fill","rgb(220,220,220)")
+       .attr("y",450)
+       .attr("font-family",'ZCOOL XiaoWei')
+       .attr("font-size",20)
+       .attr("text-anchor","middle")
+       .attr("id","storychi1")
+     ;
+
+    myStory.append("text")
+        .text("同时你也可以进一步了解城市和宋词之间的联系。享受你的历史之旅吧！")
+        .attr("x",800)
+        .attr("fill","rgb(220,220,220)")
+        .attr("y",490)
+        .attr("font-family",'ZCOOL XiaoWei')
+        .attr("font-size",20)
+        .attr("text-anchor","middle")
+        .attr("id","storychi2")
+    ;
+
+    myStory.append("text")
+        .text("(提示： 如果页面太大，请摁住ctrl/command键并滑动鼠标滚轮来调整地图大小。)")
+        .attr("x",800)
+        .attr("fill","rgb(220,220,220)")
+        .attr("y",530)
+        .attr("font-family",'ZCOOL XiaoWei')
+        .attr("font-size",20)
+        .attr("text-anchor","middle")
+        .attr("id","storychi3")
+    ;
+
 
   //background pic at welcome page
   viz.append("svg:image")
@@ -645,11 +738,13 @@ d3.json("mainland.geojson").then(function(geoData){
     console.log(1);
   });
   document.getElementById("menuicon1").addEventListener("mouseout",function(){
-    viz.select("#menuicon1").transition().attr("xlink:href","pic/whitehome.png");
+    viz.select("#menuicon1").transition()
+    .attr("xlink:href","pic/whitehome.png")
+    .attr("opacity",1);
   });
   document.getElementById("menuicon1").addEventListener("click",function(){
     press.play();
-    if(smallMap){
+    if(smallMap && !showstory){
       smallMap =false;
       swish.play();
 
@@ -686,7 +781,56 @@ d3.json("mainland.geojson").then(function(geoData){
 
   });
   document.getElementById("menuicon2").addEventListener("mouseout",function(){
-    viz.select("#menuicon2").transition().attr("xlink:href","pic/whitebook.png");
+    viz.select("#menuicon2").transition().attr("xlink:href","pic/whitebook.png").attr("opacity",1);
+  });
+  document.getElementById("menuicon2").addEventListener("click",function(){
+    press.play();
+    turnpage.play();
+    if(!showstory){
+      showstory = true;
+
+      viz.select("#bgmain")
+        .transition()
+        .attr("opacity",0.5)
+      ;
+
+      viz.select(".mymap").transition()
+        .attr("display","none")
+      ;
+
+      viz.select(".places").transition()
+        .attr("display","none")
+      ;
+
+      viz.select(".scroll").transition().duration(1000).attr("transform","translate(1100 -950)");
+
+      viz.select(".story").transition()
+        .attr("display","block")
+      ;
+    }else{
+      showstory = false;
+
+      if(!smallMap){
+        viz.select(".mymap").transition()
+          .attr("display","block")
+        ;
+      }
+
+
+      viz.select(".places").transition()
+        .attr("display","block")
+      ;
+
+      viz.select(".story").transition()
+        .attr("display","none")
+      ;
+
+      viz.select("#bgmain")
+        .transition()
+        .attr("opacity",0.9)
+      ;
+    }
+
   });
 
 
@@ -697,7 +841,7 @@ d3.json("mainland.geojson").then(function(geoData){
 
   });
   document.getElementById("menuicon3").addEventListener("mouseout",function(){
-    viz.select("#menuicon3").transition().attr("xlink:href","pic/whiteglobe.png");
+    viz.select("#menuicon3").transition().attr("xlink:href","pic/whiteglobe.png").attr("opacity",1);
   });
   document.getElementById("menuicon3").addEventListener("click",function(){
     press.play();
@@ -705,6 +849,41 @@ d3.json("mainland.geojson").then(function(geoData){
   });
 
 
+  document.getElementById("menuicon4").addEventListener("mouseover",function(){
+    viz.select("#menuicon4").transition()
+      .attr("xlink:href","pic/redgraph.png")
+      .attr("cursor","pointer");
+
+  });
+  document.getElementById("menuicon4").addEventListener("mouseout",function(){
+    viz.select("#menuicon4").transition().attr("xlink:href","pic/whitegraph.png").attr("opacity",1);
+  });
+
+
+  document.getElementById("storybox").addEventListener("click",function(){
+    press.play();
+    turnpage.play();
+    showstory = false;
+
+    if(!smallMap){
+      viz.select(".mymap").transition()
+        .attr("display","block")
+      ;
+    }
+
+    viz.select("#bgmain")
+      .transition()
+      .attr("opacity",0.9)
+    ;
+
+    viz.select(".places").transition()
+      .attr("display","block")
+    ;
+
+    viz.select(".story").transition()
+      .attr("display","none")
+    ;
+  });
 
   // welcome page button function
   document.getElementById("welcomebutton").addEventListener("click", function(){
@@ -772,6 +951,12 @@ d3.json("mainland.geojson").then(function(geoData){
       .attr("opacity",1)
     ;
     viz.select("#menuicon3")
+      .transition()
+      .delay(3000)
+      .duration(9000)
+      .attr("opacity",1)
+    ;
+    viz.select("#menuicon4")
       .transition()
       .delay(3000)
       .duration(9000)

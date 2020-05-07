@@ -42,4 +42,7 @@
 
 ## Update History
    2020.05.05: The first complete version
+
    2020.05.06: Added some buttons to the menu and added the descriptive readme file
+
+   2020.05.07: Added project description and attached a new button to the menu

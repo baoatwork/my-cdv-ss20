@@ -52,6 +52,9 @@ svg{
   stroke-dasharray: 640;
 }
 
+#storybox{
+  cursor:pointer;
+}
 /* .regions{
   cursor:pointer;
 } */
