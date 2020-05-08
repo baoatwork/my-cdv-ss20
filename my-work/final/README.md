@@ -4,7 +4,7 @@
 [Link on Zeit](https://my-cdv-ss20.now.sh/my-work/final/index.html)
 
 ## Description
-   The map of Songci is an interactive map project. The project focuses on the cities appeared in Songci and picks out representative ones to make visulizations. As for interactive functions, this project includes diverse sound, art and story elements. Aiming at providing interactive experience for users to pursue a better understanding of this poetry style associated with the history of the Song Dynasty, this project will connect the historical information of cities to the map of Song to introduce diverse aspects and stories of Song Ci and the Song Dynasty.
+   The map of Songci is a web-based interactive map project. The project focuses on the cities appeared in Songci and picks out representative ones to make visulizations. As for interactive functions, this project includes diverse sound, art and story elements. Aiming at providing interactive experience for users to pursue a better understanding of this poetry style associated with the history of the Song Dynasty, this project will connect the historical information of cities to the map of Song to introduce diverse aspects and stories of Song Ci and the Song Dynasty.
 
 
 ## Creaters
@@ -46,3 +46,6 @@
    2020.05.06: Added some buttons to the menu and added the descriptive readme file
 
    2020.05.07: Added project description and attached a new button to the menu
+
+   2020.05.08: Added three cities (Jingzhou, Qionglai, and Xianyang)
+               The info box would now response to other menu buttons

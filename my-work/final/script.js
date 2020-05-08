@@ -12,13 +12,17 @@ let playOnce = false;
 
 let smallMap = false;
 let showstory = false;
+let showGraph = false;
 
 let transNorm = d3.transform()
   .translate([0,0])
   .scale(1)
 ;
-let repeatScale = d3.scaleLinear().domain([3,331]).range([20,260]);
+let repeatScale = d3.scaleLinear().domain([1,331]).range([20,260]);
 
+let allRegions = ["Southwest China","South Central China","North China","East China"];
+let allRegionsChi = ["西南","中南","北方","东部"]
+let currentRegion = 0;
 
 
 //preload
@@ -154,6 +158,8 @@ d3.json("mainland.geojson").then(function(geoData){
             .attr("y",-200)
           ;
 
+          currentRegion = 3;
+
           myMap.transition().duration(1000)
             .attr("transform",transEast)
             .attr("display","none")
@@ -178,6 +184,8 @@ d3.json("mainland.geojson").then(function(geoData){
             .attr("y",-400)
           ;
 
+          currentRegion = 1;
+
           myMap.transition().duration(1000)
             .attr("transform",transCentral)
             .attr("display","none")
@@ -199,6 +207,8 @@ d3.json("mainland.geojson").then(function(geoData){
             .attr("y",-240)
           ;
 
+          currentRegion = 0;
+
           myMap.transition().duration(1000)
             .attr("transform",transWest)
             .attr("display","none")
@@ -219,6 +229,8 @@ d3.json("mainland.geojson").then(function(geoData){
             .attr("x",-600)
             .attr("y",0)
           ;
+
+          currentRegion = 2;
 
           myMap.transition().duration(1000)
             .attr("transform",transNorth)
@@ -365,7 +377,10 @@ d3.json("mainland.geojson").then(function(geoData){
   ;
 
   //city details
-  let myScroll = viz.append("g").attr("class","scroll").attr("transform","translate(1100 -950)");
+  let myScroll = viz.append("g")
+  .attr("class","scroll")
+  .attr("transform","translate(1100 -950)")
+  ;
 
   myScroll.append("svg:image")
      .attr("xlink:href","pic/scroll.png")
@@ -373,7 +388,7 @@ d3.json("mainland.geojson").then(function(geoData){
      .attr("x",0)
      .attr("y",0)
      .attr("id","mainscroll")
-
+     
   ;
 
   myScroll.append("text")
@@ -613,7 +628,7 @@ d3.json("mainland.geojson").then(function(geoData){
    ;
 
    myStory.append("text")
-      .text("(Tip: If the map is too large for your window, please press ctrl/command and scroll your mouse wheel to resize it.)")
+      .text("(Tip: If the map is too large for your window, please [press ctrl/command and scroll your mouse wheel to resize it] or [click F11 to view it in full screen].)")
       .attr("x",800)
       .attr("fill","rgb(220,220,220)")
       .attr("y",410)
@@ -646,7 +661,7 @@ d3.json("mainland.geojson").then(function(geoData){
     ;
 
     myStory.append("text")
-        .text("(提示： 如果页面太大，请摁住ctrl/command键并滑动鼠标滚轮来调整地图大小。)")
+        .text("(提示： 如果页面太大，请摁住ctrl/command键并滑动鼠标滚轮来调整地图大小，或按F11使页面全屏。)")
         .attr("x",800)
         .attr("fill","rgb(220,220,220)")
         .attr("y",530)
@@ -798,11 +813,14 @@ d3.json("mainland.geojson").then(function(geoData){
         .attr("display","none")
       ;
 
+      viz.select("#infotitle").transition().text("Introduction");
+      viz.select("#infotext").transition().text("简介");
+
       viz.select(".places").transition()
         .attr("display","none")
       ;
 
-      viz.select(".scroll").transition().duration(1000).attr("transform","translate(1100 -950)");
+      viz.select(".scroll").transition().attr("opacity","0.3");
 
       viz.select(".story").transition()
         .attr("display","block")
@@ -813,7 +831,14 @@ d3.json("mainland.geojson").then(function(geoData){
       if(!smallMap){
         viz.select(".mymap").transition()
           .attr("display","block")
+
         ;
+
+        viz.select("#infotitle").transition().text("Big Map");
+        viz.select("#infotext").transition().text("大地图");
+      }else{
+        viz.select("#infotitle").transition().text(allRegions[currentRegion]);
+        viz.select("#infotext").transition().text(allRegionsChi[currentRegion]);
       }
 
 
@@ -824,6 +849,8 @@ d3.json("mainland.geojson").then(function(geoData){
       viz.select(".story").transition()
         .attr("display","none")
       ;
+
+      viz.select(".scroll").transition().attr("opacity","1");
 
       viz.select("#bgmain")
         .transition()
@@ -868,7 +895,14 @@ d3.json("mainland.geojson").then(function(geoData){
     if(!smallMap){
       viz.select(".mymap").transition()
         .attr("display","block")
+
       ;
+
+      viz.select("#infotitle").transition().text("Big Map");
+      viz.select("#infotext").transition().text("大地图");
+    }else{
+      viz.select("#infotitle").transition().text(allRegions[currentRegion]);
+      viz.select("#infotext").transition().text(allRegionsChi[currentRegion]);
     }
 
     viz.select("#bgmain")
@@ -880,6 +914,7 @@ d3.json("mainland.geojson").then(function(geoData){
       .attr("display","block")
     ;
 
+    viz.select(".scroll").transition().attr("opacity","1");
     viz.select(".story").transition()
       .attr("display","none")
     ;

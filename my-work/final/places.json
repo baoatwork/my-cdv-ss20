@@ -32,11 +32,11 @@
     {
         "place": "Kaifeng",
         "placeschi": "开封",
-        "appear": 164,
+        "appear": 191,
         "first": "柳永",
-        "firstt": 11,
+        "firstt": 12,
         "second": "晁端礼",
-        "secondt": 4,
+        "secondt": 5,
         "thrid": "陆游",
         "thridt": 4,
         "name": "京华",
@@ -191,8 +191,8 @@
         "thridt": 2,
         "name": "长沙",
         "region": "South Central China",
-        "lon": 113,
-        "lat": 28.3
+        "lon": 114,
+        "lat": 29.0
     },
     {
         "place": "Xiangyang",
@@ -206,8 +206,8 @@
         "thridt": 1,
         "name": "襄阳",
         "region": "South Central China",
-        "lon": 112.1,
-        "lat": 32
+        "lon": 113.1,
+        "lat": 33.2
     },
     {
         "place": "Jiujiang",
@@ -223,5 +223,50 @@
         "region": "East China",
         "lon": 117,
         "lat": 30.4
-    }
+    },
+    {
+        "place": "Jingzhou",
+        "placeschi": "荆州",
+        "appear": 35,
+        "first": "李曾伯",
+        "firstt": 12,
+        "second": "陈人杰",
+        "secondt": 2,
+        "thrid": "向子",
+        "thridt": 2,
+        "name": "荆州",
+        "region": "South Central China",
+        "lon": 113.1,
+        "lat": 31.8
+    },
+    {
+        "place": "Xianyang",
+        "placeschi": "咸阳",
+        "appear": 46,
+        "first": "贺铸",
+        "firstt": 3,
+        "second": "洪适",
+        "secondt": 3,
+        "thrid": "刘辰翁",
+        "thridt": 3,
+        "name": "渭城",
+        "region": "North China",
+        "lon": 111.5,
+        "lat": 34.3
+    },
+    {
+       "place": "Qionglai",
+       "placeschi": "邛崃",
+       "appear": 10,
+       "first": "晁补之",
+       "firstt": 2,
+       "second": "戴复古",
+       "secondt": 1,
+       "thrid": "李刘",
+       "thridt": 1,
+       "name": "临邛",
+       "region": "Southwest China",
+       "lon": 105.6,
+       "lat": 30.7
+   }
 ]
