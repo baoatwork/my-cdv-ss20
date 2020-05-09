@@ -31,7 +31,7 @@ let allRegionsChi = ["西南","中南","北方","东部"]
 let currentRegion = 0;
 
 let mainBgm1;
-let mainbgm2;
+let mainBgm2;
 //preload
 function preload(){
   welcomeBgm = loadSound("sound/welcome.mp3");
@@ -63,16 +63,7 @@ function draw(){
     playOnce =false;
   }
 
-  if(changeVolume){
-    changeVolume = false;
-    if(!withSound){
-      mainBgm1.setVolume(0);
-      mainBgm2.setVolume(0);
-    }else{
-      mainBgm1.setVolume(1);
-      mainBgm2.setVolume(1);
-    }
-  }
+  
 }
 
 // SVG
@@ -100,14 +91,15 @@ d3.json("mainland.geojson").then(function(geoData){
 
     let xAxis = d3.axisBottom(xScale)
 
-    xAxis.tickFormat(d=>{return newData.filter(dd=>dd.key==d).place;});
+    //xAxis.tickFormat(d=>{return newData.filter(dd=>dd.key==d).place;});
 
     let xAxisGroup = myGraph.append("g").classed("xAxis", true);
 
     xAxisGroup.call(xAxis);
 
     xAxisGroup.selectAll("text")
-    .attr("font-size", 20)
+    .attr("font-size", 10)
+    .attr("fill","rgb(220,220,220)")
     .attr("font-family",'ZCOOL XiaoWei')
     .attr("y", 9)
     ;
@@ -485,25 +477,10 @@ d3.json("mainland.geojson").then(function(geoData){
 
         xAxis = d3.axisBottom(xScale)
 
-        xAxis.tickFormat(d=>{return newData.filter(dd=>dd.key==d).place;});
+        //xAxis.tickFormat(d=>{return newData.filter(dd=>dd.key==d).place;});
 
-        xAxisGroup = myGraph.append("g").classed("xAxis", true);
 
-        xAxisGroup.call(xAxis);
-
-        xAxisGroup.selectAll("text")
-        .attr("font-size", 20)
-        .attr("font-family",'ZCOOL XiaoWei')
-        .attr("y", 9)
-        ;
-
-        xAxisGroup.selectAll("path")
-        .attr("stroke", "rgb(220,220,220)")
-
-        ;
-
-        xAxisGroup.selectAll("line").remove();
-        xAxisGroup.attr("transform", "translate(500,650)");
+        xAxisGroup.transition().duration(1000).call(xAxis);
 
         elementsForPage = myGraph.selectAll(".datapoint").data(newData,function(d,i){return d.place;});
 
@@ -550,25 +527,10 @@ d3.json("mainland.geojson").then(function(geoData){
 
         xAxis = d3.axisBottom(xScale)
 
-        xAxis.tickFormat(d=>{return newData.filter(dd=>dd.key==d).place;});
+        //xAxis.tickFormat(d=>{return newData.filter(dd=>dd.key==d).place;});
 
-        xAxisGroup = myGraph.append("g").classed("xAxis", true);
 
-        xAxisGroup.call(xAxis);
-
-        xAxisGroup.selectAll("text")
-        .attr("font-size", 20)
-        .attr("font-family",'ZCOOL XiaoWei')
-        .attr("y", 9)
-        ;
-
-        xAxisGroup.selectAll("path")
-        .attr("stroke", "rgb(220,220,220)")
-
-        ;
-
-        xAxisGroup.selectAll("line").remove();
-        xAxisGroup.attr("transform", "translate(500,650)");
+        xAxisGroup.transition().duration(1000).call(xAxis);
 
         elementsForPage = myGraph.selectAll(".datapoint").data(newData,function(d,i){return d.place;});
 
@@ -1315,14 +1277,16 @@ d3.json("mainland.geojson").then(function(geoData){
     press.play();
     if(withSound){
       withSound = false;
-      changeVolume = true;
+      mainBgm1.setVolume(0);
+      mainBgm2.setVolume(0);
       viz.select("#menuicon5").transition()
         .attr("xlink:href","pic/rednosound.png")
         ;
 
     }else{
       withSound =true;
-      changeVolume = true;
+      mainBgm1.setVolume(1);
+      mainBgm2.setVolume(1);
       viz.select("#menuicon5").transition()
         .attr("xlink:href","pic/redsound.png")
         ;
