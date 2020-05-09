@@ -12,7 +12,9 @@
         "name": "钱塘",
         "region": "East China",
         "lon": 120.2,
-        "lat": 30.2
+        "lat": 30.2,
+        "regionseq":1,
+        "regionchi":"东部"
     },
     {
         "place": "Chengdu",
@@ -27,7 +29,9 @@
         "name": "锦城",
         "region": "Southwest China",
         "lon": 106.1,
-        "lat": 31.0
+        "lat": 31.0,
+        "regionseq":4,
+        "regionchi":"西南"
     },
     {
         "place": "Kaifeng",
@@ -42,7 +46,9 @@
         "name": "京华",
         "region": "North China",
         "lon": 116,
-        "lat": 34.8
+        "lat": 34.8,
+        "regionseq":2,
+        "regionchi":"北方"
     },
     {
         "place": "Shaoxing",
@@ -57,7 +63,9 @@
         "name": "山阴",
         "region": "East China",
         "lon": 120.5,
-        "lat": 30
+        "lat": 30,
+        "regionseq":1,
+        "regionchi":"东部"
     },
     {
         "place": "Guangzhou",
@@ -72,7 +80,9 @@
         "name": "南海",
         "region": "South Central China",
         "lon": 113.7,
-        "lat": 25
+        "lat": 25,
+        "regionseq":3,
+        "regionchi":"中南"
     },
     {
         "place": "Luoyang",
@@ -87,7 +97,9 @@
         "name": "洛阳",
         "region": "North China",
         "lon": 114,
-        "lat": 34.7
+        "lat": 34.7,
+        "regionseq":2,
+        "regionchi":"北方"
     },
     {
         "place": "Xian",
@@ -102,7 +114,9 @@
         "name": "长安",
         "region": "North China",
         "lon": 111.9,
-        "lat": 34.2
+        "lat": 34.2,
+        "regionseq":2,
+        "regionchi":"北方"
     },
     {
         "place": "Taiyuan",
@@ -117,7 +131,9 @@
         "name": "并州",
         "region": "North China",
         "lon": 114.5,
-        "lat": 37.2
+        "lat": 37.2,
+        "regionseq":2,
+        "regionchi":"北方"
     },
     {
         "place": "Suzhou",
@@ -132,7 +148,9 @@
         "name": "姑苏",
         "region": "East China",
         "lon": 120.6,
-        "lat": 31.3
+        "lat": 31.3,
+        "regionseq":1,
+        "regionchi":"东部"
     },
     {
         "place": "Nanjing",
@@ -147,7 +165,9 @@
         "name": "金陵",
         "region": "East China",
         "lon": 118.8,
-        "lat": 31.3
+        "lat": 31.3,
+        "regionseq":1,
+        "regionchi":"东部"
     },
     {
         "place": "Nanchang",
@@ -162,7 +182,9 @@
         "name": "南昌",
         "region": "East China",
         "lon": 116.1,
-        "lat": 28.7
+        "lat": 28.7,
+        "regionseq":1,
+        "regionchi":"东部"
     },
     {
         "place": "Yangzhou",
@@ -177,7 +199,9 @@
         "name": "扬州",
         "region": "East China",
         "lon": 119.4,
-        "lat": 32.4
+        "lat": 32.4,
+        "regionseq":1,
+        "regionchi":"东部"
     },
     {
         "place": "Changsha",
@@ -192,7 +216,9 @@
         "name": "长沙",
         "region": "South Central China",
         "lon": 114,
-        "lat": 29.0
+        "lat": 29.0,
+        "regionseq":3,
+        "regionchi":"中南"
     },
     {
         "place": "Xiangyang",
@@ -207,7 +233,9 @@
         "name": "襄阳",
         "region": "South Central China",
         "lon": 113.1,
-        "lat": 33.2
+        "lat": 33.2,
+        "regionseq":3,
+        "regionchi":"中南"
     },
     {
         "place": "Jiujiang",
@@ -222,7 +250,9 @@
         "name": "浔阳",
         "region": "East China",
         "lon": 117,
-        "lat": 30.4
+        "lat": 30.4,
+        "regionseq":1,
+        "regionchi":"东部"
     },
     {
         "place": "Jingzhou",
@@ -237,7 +267,9 @@
         "name": "荆州",
         "region": "South Central China",
         "lon": 113.1,
-        "lat": 31.8
+        "lat": 31.8,
+        "regionseq":3,
+        "regionchi":"中南"
     },
     {
         "place": "Xianyang",
@@ -252,7 +284,9 @@
         "name": "渭城",
         "region": "North China",
         "lon": 111.5,
-        "lat": 34.3
+        "lat": 34.3,
+        "regionseq":2,
+        "regionchi":"北方"
     },
     {
        "place": "Qionglai",
@@ -267,6 +301,8 @@
        "name": "临邛",
        "region": "Southwest China",
        "lon": 105.6,
-       "lat": 30.7
+       "lat": 30.7,
+       "regionseq":4,
+       "regionchi":"西南"
    }
 ]

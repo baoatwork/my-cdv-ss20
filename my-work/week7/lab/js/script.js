@@ -71,13 +71,7 @@ xAxisGroup.attr("transform", "translate(0,"+ (h-padding) +")")
 // to make sure our bars have heights that fit the window. It's
 // familiar linear scale.
 let yMax = d3.max(data, function(d){return d.value});
-// I decided not to use the minimum value of the dataset,
-// because otherwise the smallest value's bar would always be 0 pixels
-// high and therefore invisible.
 yDomain = [0, yMax];
-// "hey d3 i need a linear scale please. yeah! I want to supply a value
-// to it that is between 0 and yMax and want one back that fits between
-// my graph's paddings. Cheers!"
 let yScale = d3.scaleLinear().domain(yDomain).range([0, h-padding*2]);
 
 

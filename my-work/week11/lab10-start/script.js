@@ -56,7 +56,7 @@ d3.json("monarchs.json").then(function(incomingData){
   function clickFunction(d,i){
     console.log(d.event);
     console.log(this);
-    cpnsole.log(d3.mouse(viz.node()));
+    console.log(d3.mouse(viz.node()));
     //d3.select(this).select("circle").attr("r",15);
 
 

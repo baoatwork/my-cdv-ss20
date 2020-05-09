@@ -49,3 +49,5 @@
 
    2020.05.08: Added three cities (Jingzhou, Qionglai, and Xianyang)
                The info box would now response to other menu buttons
+
+   2020.05.09: Added graph to the project and a button to control the volume of the Bgms

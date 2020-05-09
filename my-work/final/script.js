@@ -1,7 +1,8 @@
 
 let w = 1600;
 let h = 800;
-let padding = 20;
+let padding = 50;
+
 
 let lat =31.22773;
 let lon = 121.53946;
@@ -9,10 +10,15 @@ let lon = 121.53946;
 let enterMap =false;
 let enterTime;
 let playOnce = false;
+let withSound = true;
+let changeVolume =false;
 
 let smallMap = false;
 let showstory = false;
 let showGraph = false;
+let currentGraph = 1;
+let gw = 1000;
+let gh = 600;
 
 let transNorm = d3.transform()
   .translate([0,0])
@@ -24,7 +30,8 @@ let allRegions = ["Southwest China","South Central China","North China","East Ch
 let allRegionsChi = ["西南","中南","北方","东部"]
 let currentRegion = 0;
 
-
+let mainBgm1;
+let mainbgm2;
 //preload
 function preload(){
   welcomeBgm = loadSound("sound/welcome.mp3");
@@ -55,6 +62,17 @@ function draw(){
     mainBgm2.loop();
     playOnce =false;
   }
+
+  if(changeVolume){
+    changeVolume = false;
+    if(!withSound){
+      mainBgm1.setVolume(0);
+      mainBgm2.setVolume(0);
+    }else{
+      mainBgm1.setVolume(1);
+      mainBgm2.setVolume(1);
+    }
+  }
 }
 
 // SVG
@@ -67,19 +85,99 @@ let viz = d3.select(".container").append("svg")
 //geojson map
 d3.json("mainland.geojson").then(function(geoData){
   d3.json("places.json").then(function(incomingData){
-    console.log(geoData);
+    console.log(incomingData);
+
+    let newData = incomingData.sort(function(a,b){return b.appear-a.appear});
+    let allNames = newData.map(function(d){return d.place});
+    console.log(allNames);
+
+    //x,y axis
+    let xScale = d3.scaleBand()
+        .domain(allNames)
+        .range([padding, gw-padding*2])
+        .paddingInner(0.1)
+    ;
+
+    let xAxis = d3.axisBottom(xScale)
+
+    xAxis.tickFormat(d=>{return newData.filter(dd=>dd.key==d).place;});
+
+    let xAxisGroup = myGraph.append("g").classed("xAxis", true);
+
+    xAxisGroup.call(xAxis);
+
+    xAxisGroup.selectAll("text")
+    .attr("font-size", 20)
+    .attr("font-family",'ZCOOL XiaoWei')
+    .attr("y", 9)
+    ;
+
+    xAxisGroup.selectAll("path")
+    .attr("stroke", "rgb(220,220,220)")
+
+    ;
+
+    xAxisGroup.selectAll("line").remove();
+    xAxisGroup.attr("transform", "translate(500,650)");
+
+    let yMax = d3.max(newData, function(d){return d.appear});
+    let yDomain = [0, yMax];
+    let yScale = d3.scaleLinear().domain(yDomain).range([5, 450]);
+
+    let elementsForPage = myGraph.selectAll(".datapoint").data(newData,function(d,i){return d.place;});
+    let enteringElements = elementsForPage.enter();
+    let enteringDataGroups = enteringElements.append("g").classed("datapoint", true);
+
+
+    enteringDataGroups.attr("transform", function(d, i){
+      let xMove = xScale(d.place) + 500;
+      return "translate("+ xMove+ ",650)"
+    });
+
+    enteringDataGroups
+      .append("rect")
+        .attr("width", function(){
+          return xScale.bandwidth();
+        })
+        .attr("height", function(d, i){
+          return yScale(d.appear);
+        })
+        .attr("y", function(d,i){
+          return -yScale(d.appear);
+        })
+        .attr("fill", function(d,i){
+          let myScale = repeatScale(d.appear);
+          if(myScale <= 50){
+            return "#81C7D4";
+          }else if(myScale >= 150){
+            return "#006284";
+          }else{
+            return "#33A6B8";
+          }
+        })
+        .attr("rx",5)
+        .attr("ry",5)
+        .on("mouseover",function(d,i){
+          myGraph.select("#graphtext1").text(d.place+" "+d.placeschi);
+          myGraph.select("#graphtext2").text(d.region+" "+d.regionchi);
+          myGraph.select("#graphtext3").text("Occurrence 出现次数: "+d.appear);
+        })
+        .on("mouseout",function(d,i){
+          myGraph.select("#graphtext1").text("");
+          myGraph.select("#graphtext2").text("");
+          myGraph.select("#graphtext3").text("");
+        })
+    ;
 
     let projection = d3.geoPatterson()
        .fitExtent([[-850,-900],[1850,1100]],geoData)
     ;
 
-    // let projectionEast = d3.geoPatterson()
-    //    .fitExtent([[-2500,-1400],[3000,2600]],geoData)
-    // ;
+
 
 
     let pathMaker = d3.geoPath(projection);
-    // let pathMakerEast = d3.geoPath(projectionEast);
+
 
     let transEast = d3.transform()
       .translate([-800,-200])
@@ -359,6 +457,150 @@ d3.json("mainland.geojson").then(function(geoData){
 
     ;
 
+    //graph button functions
+    document.getElementById("graphbutton").addEventListener("mouseover",function(){
+      viz.select("#graphbutton").transition()
+        .attr("xlink:href","pic/redarrow.png")
+        .attr("cursor","pointer");
+
+    });
+    document.getElementById("graphbutton").addEventListener("mouseout",function(){
+      viz.select("#graphbutton").transition().attr("xlink:href","pic/whitearrow.png");
+    });
+    document.getElementById("graphbutton").addEventListener("click",function(){
+      press.play();
+      swish.play();
+      console.log(newData);
+      if (currentGraph == 1){
+        currentGraph = 2;
+        newData = incomingData.sort(function(a,b){return a.regionseq-b.regionseq});
+        allNames = newData.map(function(d){return d.place});
+
+        //x,y axis
+        xScale = d3.scaleBand()
+            .domain(allNames)
+            .range([padding, gw-padding*2])
+            .paddingInner(0.1)
+        ;
+
+        xAxis = d3.axisBottom(xScale)
+
+        xAxis.tickFormat(d=>{return newData.filter(dd=>dd.key==d).place;});
+
+        xAxisGroup = myGraph.append("g").classed("xAxis", true);
+
+        xAxisGroup.call(xAxis);
+
+        xAxisGroup.selectAll("text")
+        .attr("font-size", 20)
+        .attr("font-family",'ZCOOL XiaoWei')
+        .attr("y", 9)
+        ;
+
+        xAxisGroup.selectAll("path")
+        .attr("stroke", "rgb(220,220,220)")
+
+        ;
+
+        xAxisGroup.selectAll("line").remove();
+        xAxisGroup.attr("transform", "translate(500,650)");
+
+        elementsForPage = myGraph.selectAll(".datapoint").data(newData,function(d,i){return d.place;});
+
+
+
+
+        elementsForPage.transition().duration(1000).attr("transform", function(d, i){
+          let xMove = xScale(d.place) + 500;
+          return "translate("+ xMove+ ",650)"
+        });
+
+        elementsForPage
+          .selectAll("rect")
+          .transition()
+          .duration(1000)
+            .attr("fill", function(d,i){
+              let myScale = d.region;
+              if(myScale == "South Central China"){
+                return "#E87A90";
+              }else if(myScale == "North China"){
+                return "#FAD689";
+              }else if(myScale == "East China"){
+                return "#33A6B8";
+              }else if(myScale == "Southwest China"){
+                return "#86C166";
+              }
+            })
+            .attr("rx",5)
+            .attr("ry",5)
+        ;
+
+        viz.select("#graphtitle").transition().text("Sorted by Regions 按区域排序");
+      }else if(currentGraph == 2){
+        currentGraph = 1;
+        newData = incomingData.sort(function(a,b){return b.appear-a.appear});
+        allNames = newData.map(function(d){return d.place});
+
+        //x,y axis
+        xScale = d3.scaleBand()
+            .domain(allNames)
+            .range([padding, gw-padding*2])
+            .paddingInner(0.1)
+        ;
+
+        xAxis = d3.axisBottom(xScale)
+
+        xAxis.tickFormat(d=>{return newData.filter(dd=>dd.key==d).place;});
+
+        xAxisGroup = myGraph.append("g").classed("xAxis", true);
+
+        xAxisGroup.call(xAxis);
+
+        xAxisGroup.selectAll("text")
+        .attr("font-size", 20)
+        .attr("font-family",'ZCOOL XiaoWei')
+        .attr("y", 9)
+        ;
+
+        xAxisGroup.selectAll("path")
+        .attr("stroke", "rgb(220,220,220)")
+
+        ;
+
+        xAxisGroup.selectAll("line").remove();
+        xAxisGroup.attr("transform", "translate(500,650)");
+
+        elementsForPage = myGraph.selectAll(".datapoint").data(newData,function(d,i){return d.place;});
+
+
+
+
+        elementsForPage.transition().duration(1000).attr("transform", function(d, i){
+          let xMove = xScale(d.place) + 500;
+          return "translate("+ xMove+ ",650)"
+        });
+
+        elementsForPage
+          .selectAll("rect")
+          .transition()
+          .duration(1000)
+            .attr("fill", function(d,i){
+              let myScale = repeatScale(d.appear);
+              if(myScale <= 50){
+                return "#81C7D4";
+              }else if(myScale >= 150){
+                return "#006284";
+              }else{
+                return "#33A6B8";
+              }
+            })
+            .attr("rx",5)
+            .attr("ry",5)
+        ;
+        viz.select("#graphtitle").transition().text("Sorted by Occurrence 按出现次数排序");
+      }
+    });
+
 
     });
   })
@@ -388,7 +630,7 @@ d3.json("mainland.geojson").then(function(geoData){
      .attr("x",0)
      .attr("y",0)
      .attr("id","mainscroll")
-     
+
   ;
 
   myScroll.append("text")
@@ -432,7 +674,7 @@ d3.json("mainland.geojson").then(function(geoData){
   ;
 
   myScroll.append("text")
-     .text("出现次数 Repeat")
+     .text("出现次数 Occurrence")
      .attr("x",100)
      .attr("y",410)
      .attr("font-family",'Ma Shan Zheng')
@@ -572,7 +814,7 @@ d3.json("mainland.geojson").then(function(geoData){
   viz.append("svg:image")
      .attr("xlink:href","pic/whiteglobe.png")
      .attr("width",25)
-     .attr("x",240)
+     .attr("x",310)
      .attr("y",2)
      .attr("id","menuicon3")
      .attr("opacity",0)
@@ -588,6 +830,87 @@ d3.json("mainland.geojson").then(function(geoData){
      .attr("opacity",0)
 
   ;
+
+  viz.append("svg:image")
+     .attr("xlink:href","pic/whitesound.png")
+     .attr("width",30)
+     .attr("x",240)
+     .attr("y",0)
+     .attr("id","menuicon5")
+     .attr("opacity",0)
+
+  ;
+
+  //Graph
+  let myGraph = viz.append("g")
+    .attr("class","count")
+    .attr("display","none");
+
+  myGraph.append("rect")
+    .attr("x",500)
+    .attr("y",100)
+    .attr("width",1000)
+    .attr("height",600)
+    .attr("id","graphbox")
+    .attr("opacity",0.7)
+
+  ;
+
+  myGraph.append("svg:image")
+     .attr("xlink:href","pic/whitearrow.png")
+     .attr("width",60)
+     .attr("x",1400)
+     .attr("y",130)
+     .attr("id","graphbutton")
+  ;
+
+     myGraph.append("text")
+        .text("Sorted by Occurrence 按出现次数排序")
+        .attr("x",1000)
+        .attr("fill","rgb(220,220,220)")
+        .attr("y",170)
+        .attr("font-family",'ZCOOL XiaoWei')
+        .attr("font-size",30)
+        .attr("text-anchor","middle")
+        .attr("id","graphtitle")
+      ;
+
+
+  myGraph.append("text")
+     .text("")
+     .attr("x",1270)
+     .attr("fill","rgb(220,220,220)")
+     .attr("y",240)
+     .attr("font-family",'ZCOOL XiaoWei')
+     .attr("font-size",18)
+     .attr("id","graphtext1")
+
+  ;
+
+  myGraph.append("text")
+     .text("")
+     .attr("x",1270)
+     .attr("fill","rgb(220,220,220)")
+     .attr("y",270)
+     .attr("font-family",'ZCOOL XiaoWei')
+     .attr("font-size",18)
+     .attr("id","graphtext2")
+
+  ;
+
+  myGraph.append("text")
+     .text("")
+     .attr("x",1270)
+     .attr("fill","rgb(220,220,220)")
+     .attr("y",300)
+     .attr("font-family",'ZCOOL XiaoWei')
+     .attr("font-size",18)
+     .attr("id","graphtext3")
+
+  ;
+
+
+
 
   //story
   let myStory = viz.append("g")
@@ -756,10 +1079,13 @@ d3.json("mainland.geojson").then(function(geoData){
     viz.select("#menuicon1").transition()
     .attr("xlink:href","pic/whitehome.png")
     .attr("opacity",1);
+    viz.select("#inforect").transition().attr("opacity",0.7);
+    viz.select("#infotitle").transition().attr("opacity",1);
+    viz.select("#infotext").transition().attr("opacity",1);
   });
   document.getElementById("menuicon1").addEventListener("click",function(){
     press.play();
-    if(smallMap && !showstory){
+    if(smallMap && !showstory && !showGraph){
       smallMap =false;
       swish.play();
 
@@ -797,16 +1123,19 @@ d3.json("mainland.geojson").then(function(geoData){
   });
   document.getElementById("menuicon2").addEventListener("mouseout",function(){
     viz.select("#menuicon2").transition().attr("xlink:href","pic/whitebook.png").attr("opacity",1);
+      viz.select("#inforect").transition().attr("opacity",0.7);
+      viz.select("#infotitle").transition().attr("opacity",1);
+      viz.select("#infotext").transition().attr("opacity",1);
   });
   document.getElementById("menuicon2").addEventListener("click",function(){
     press.play();
     turnpage.play();
-    if(!showstory){
+    if(!showstory && !showGraph){
       showstory = true;
 
       viz.select("#bgmain")
         .transition()
-        .attr("opacity",0.5)
+        .attr("opacity",0.3)
       ;
 
       viz.select(".mymap").transition()
@@ -820,12 +1149,12 @@ d3.json("mainland.geojson").then(function(geoData){
         .attr("display","none")
       ;
 
-      viz.select(".scroll").transition().attr("opacity","0.3");
+      viz.select(".scroll").transition().attr("opacity",0.2);
 
       viz.select(".story").transition()
         .attr("display","block")
       ;
-    }else{
+    }else if(showstory){
       showstory = false;
 
       if(!smallMap){
@@ -869,6 +1198,9 @@ d3.json("mainland.geojson").then(function(geoData){
   });
   document.getElementById("menuicon3").addEventListener("mouseout",function(){
     viz.select("#menuicon3").transition().attr("xlink:href","pic/whiteglobe.png").attr("opacity",1);
+    viz.select("#inforect").transition().attr("opacity",0.7);
+    viz.select("#infotitle").transition().attr("opacity",1);
+    viz.select("#infotext").transition().attr("opacity",1);
   });
   document.getElementById("menuicon3").addEventListener("click",function(){
     press.play();
@@ -884,9 +1216,122 @@ d3.json("mainland.geojson").then(function(geoData){
   });
   document.getElementById("menuicon4").addEventListener("mouseout",function(){
     viz.select("#menuicon4").transition().attr("xlink:href","pic/whitegraph.png").attr("opacity",1);
+    viz.select("#inforect").transition().attr("opacity",0.7);
+    viz.select("#infotitle").transition().attr("opacity",1);
+    viz.select("#infotext").transition().attr("opacity",1);
+  });
+  document.getElementById("menuicon4").addEventListener("click",function(){
+    press.play();
+    turnpage.play();
+    if(!showGraph && !showstory){
+      showGraph = true;
+
+      viz.select("#bgmain")
+        .transition()
+        .attr("opacity",0.3)
+      ;
+
+      viz.select(".mymap").transition()
+        .attr("display","none")
+      ;
+
+      viz.select("#infotitle").transition().text("Graph");
+      viz.select("#infotext").transition().text("统计");
+
+      viz.select(".places").transition()
+        .attr("display","none")
+      ;
+
+      viz.select(".scroll").transition().attr("opacity",0.2);
+
+      viz.select(".count").transition()
+        .attr("display","block")
+      ;
+    }else if(showGraph){
+      showGraph = false;
+
+      if(!smallMap){
+        viz.select(".mymap").transition()
+          .attr("display","block")
+
+        ;
+
+        viz.select("#infotitle").transition().text("Big Map");
+        viz.select("#infotext").transition().text("大地图");
+      }else{
+        viz.select("#infotitle").transition().text(allRegions[currentRegion]);
+        viz.select("#infotext").transition().text(allRegionsChi[currentRegion]);
+      }
+
+
+      viz.select(".places").transition()
+        .attr("display","block")
+      ;
+
+      viz.select(".count").transition()
+        .attr("display","none")
+      ;
+
+      viz.select(".scroll").transition().attr("opacity","1");
+
+      viz.select("#bgmain")
+        .transition()
+        .attr("opacity",0.9)
+      ;
+    }
+
+  });
+
+  document.getElementById("menuicon5").addEventListener("mouseover",function(){
+    if(withSound){
+      viz.select("#menuicon5").transition()
+        .attr("xlink:href","pic/redsound.png")
+        ;
+    }else{
+      viz.select("#menuicon5").transition()
+        .attr("xlink:href","pic/rednosound.png")
+        ;
+    }
+
+
+  });
+  document.getElementById("menuicon5").addEventListener("mouseout",function(){
+    if(withSound){
+      viz.select("#menuicon5").transition()
+        .attr("xlink:href","pic/whitesound.png")
+        .attr("opacity",1)
+        ;
+    }else{
+      viz.select("#menuicon5").transition()
+        .attr("xlink:href","pic/whitenosound.png")
+        .attr("opacity",1)
+        ;
+    }
+    viz.select("#inforect").transition().attr("opacity",0.7);
+    viz.select("#infotitle").transition().attr("opacity",1);
+    viz.select("#infotext").transition().attr("opacity",1);
+  });
+  document.getElementById("menuicon5").addEventListener("click",function(){
+    press.play();
+    if(withSound){
+      withSound = false;
+      changeVolume = true;
+      viz.select("#menuicon5").transition()
+        .attr("xlink:href","pic/rednosound.png")
+        ;
+
+    }else{
+      withSound =true;
+      changeVolume = true;
+      viz.select("#menuicon5").transition()
+        .attr("xlink:href","pic/redsound.png")
+        ;
+
+      }
   });
 
 
+  //introduction function
   document.getElementById("storybox").addEventListener("click",function(){
     press.play();
     turnpage.play();
@@ -919,6 +1364,11 @@ d3.json("mainland.geojson").then(function(geoData){
       .attr("display","none")
     ;
   });
+
+
+
+
+
 
   // welcome page button function
   document.getElementById("welcomebutton").addEventListener("click", function(){
@@ -992,6 +1442,12 @@ d3.json("mainland.geojson").then(function(geoData){
       .attr("opacity",1)
     ;
     viz.select("#menuicon4")
+      .transition()
+      .delay(3000)
+      .duration(9000)
+      .attr("opacity",1)
+    ;
+    viz.select("#menuicon5")
       .transition()
       .delay(3000)
       .duration(9000)
