@@ -11,14 +11,15 @@
    Sumner Feng
 
 ## Demos & Documentation
-   ![Image 2](screenshots/guide.jpg)
+   [Video Documentation](https://drive.google.com/file/d/1jrCX50XkiGYFFLW6mcSsohhy0lL9VXaz/view?usp=sharing)
 
 ## Guide
-
+   ![Image 2](screenshots/guide.jpg)
 
 ## Ciations
    #### -For Dataset-
    Chinese Poetry by Jackey Gao from [Github](https://github.com/jackeyGao/chinese-poetry)
+
    (The processed data cateogorizing songci into regions are in the file "processeddata.xlsx")
 
    #### -For Code-
