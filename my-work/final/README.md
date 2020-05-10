@@ -1,5 +1,5 @@
 # The Way Home
-
+![Image 1](screenshots/a.png)
 
 [Link on Zeit](https://my-cdv-ss20.now.sh/my-work/final/index.html)
 
@@ -11,7 +11,7 @@
    Sumner Feng
 
 ## Demos & Documentation
-
+   ![Image 2](screenshots/guide.jpg)
 
 ## Guide
 
@@ -19,6 +19,7 @@
 ## Ciations
    #### -For Dataset-
    Chinese Poetry by Jackey Gao from [Github](https://github.com/jackeyGao/chinese-poetry)
+   (The processed data cateogorizing songci into regions are in the file "processeddata.xlsx")
 
    #### -For Code-
    JS Library: [D3.js](https://d3js.org/)
@@ -36,7 +37,9 @@
    The ordinary Bgm for the map: 孤鸟·凄然一方 from 绘真·妙笔千山
 
 ## Screenshots
-
+   ![Image 3](screenshots/b.png)
+   ![Image 4](screenshots/c.png)
+   ![Image 5](screenshots/d.png)
 
 
 
@@ -51,3 +54,5 @@
                The info box would now response to other menu buttons
 
    2020.05.09: Added graph to the project and a button to control the volume of the Bgms
+
+   2020.05.10: Fixed the x-axis bug and updated readme file
