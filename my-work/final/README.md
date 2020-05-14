@@ -41,7 +41,7 @@
    ![Image 3](screenshots/b.png)
    ![Image 4](screenshots/c.png)
    ![Image 5](screenshots/d.png)
-
+   ![Image 6](screenshots/demo.gif)
 
 
 ## Update History
@@ -57,3 +57,5 @@
    2020.05.09: Added graph to the project and a button to control the volume of the Bgms
 
    2020.05.10: Fixed the x-axis bug and updated readme file
+
+   2020.05.14: Added a gif demo to the Readme file
