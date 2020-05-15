@@ -1,4 +1,4 @@
-# The Way Home
+# Map of Songci
 ![Image 1](screenshots/a.png)
 
 [Link on Zeit](https://my-cdv-ss20.now.sh/my-work/final/index.html)
@@ -11,7 +11,7 @@
    Sumner Feng
 
 ## Demos & Documentation
-   [Video Documentation](https://drive.google.com/file/d/1jrCX50XkiGYFFLW6mcSsohhy0lL9VXaz/view?usp=sharing)
+   [Video Documentation](https://youtu.be/xk7pPF5Os8k)
 
 ## Guide
    ![Image 2](screenshots/guide.jpg)
